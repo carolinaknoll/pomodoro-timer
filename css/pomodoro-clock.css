@@ -1,0 +1,52 @@
+body {
+  background: #333; 
+  font-family: Dosis;
+  margin: 50px 100px 50px 100px;
+  color: #FFF;
+}
+
+h1 {
+  font-size: 4em;
+  text-shadow: 4px 2px 4px rgba(100, 100, 100, 0.4);
+  text-align: center;  
+}
+
+
+button {
+  font-family: Dosis, serif;
+  font-size: 0.9em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 20px;
+  color: #FFF; 
+  border: 3px solid #EDFEDF;
+  background: #333;
+  margin: 10px;
+}
+
+.button-setters {
+  font-size: 3em; 
+  display: inline;
+}
+
+.break-buttons {
+  text-align: left;
+  
+}
+
+.work-buttons {
+  text-align: right;  
+}
+
+.circle-clock {
+  text-align: center;
+  width: 350px;
+  height: 350px;
+  margin: auto;
+  border-radius: 60%;
+  border: 3px solid #02C3F3;
+  box-shadow: 3px 3px 3px rgba(0,0,0, 0.5);
+  overflow: hidden;
+  cursor: pointer;
+}
