@@ -6,26 +6,33 @@
     <script src="/js/pomodoro-clock.js"></script>    
   </head>
   <body>
-  <h1 class="title">Pomodoro Clock</h1>
-    <div class="button-setters">
-      <div class="break-buttons">
-        <button class="break-minus">-</button>
-        <span class="break-set">5</span>
-        <button class="break-plus">+</button>
+    <div class="space">
+      <h1 class="title">Pomodoro Clock</h1>
+      <div class="setters">
+        <div class="break-set">
+          <h2>Break time</h2>
+          <span class="bplus">+</span>
+          <span class="btime">5</span>
+          <span class="bminus">-</span>
+        </div>
+      
+        <div class="work-set">
+          <h2>Work time</h2>
+          <span class="wplus">+</span>
+          <span class="wtime">25</span>
+          <span class="wminus">-</span>
+        </div>
       </div>
-      <div class="work-buttons">
-        <button class="work-minus">-</button>
-        <span class="work-set">25</span>
-        <button class="work-plus">+</button>
+      
+      <div class="circle-clock">
+          <div class="time-left">25:00 </div>
+          <div class="break-fill"> </div>
+          <div class="work-fill"> </div>
+          <div class="status">Click to start</div>
       </div>
-      <button class="reset">RESET CLOCK</button>
+          <div class="skip">Skip section</div>
+          <div class="reset">Reset clock</div>
     </div>
-    
-    <div class="circle-clock">
-      <div class="timer">
-        <span class="your-timer">Timer</span>
-        <span class="counter">Counting...</span>
-      </div>
-    </div>
+
   </body>
 </html>
