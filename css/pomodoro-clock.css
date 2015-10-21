@@ -30,13 +30,20 @@ h1 {
 .break-set {
   float: left;
   margin-left: 150px;
-  
+  color: #33FF99;
+  text-align: center;  
 }
 
 .work-set {
   float: right;
   margin-right: 150px;
- 
+  color: #00CCCC;
+  text-align: center; 
+}
+
+.bplus, .btime, .bminus, .wplus, .wtime, .wminus {
+  font-size: 2em;
+  padding: 0 10px 0 10px; 
 }
 
 .circle-clock {
@@ -45,7 +52,7 @@ h1 {
   height: 300px;
   margin: auto;
   border-radius: 60%;
-  border: 3px solid #02C3F3;
+  border: 3px solid #000099; /* 02C3F3 */
   box-shadow: 3px 3px 3px rgba(0,0,0, 0.5);
   overflow: hidden;
   cursor: pointer;
@@ -63,11 +70,11 @@ h1 {
 }
 
 .break-fill {
-  
+  background-color: #33FF99; 
 }
 
 .work-fill {
-  
+  background-color: #00CCCC;
 }
 
 .status {
@@ -76,9 +83,7 @@ h1 {
   position: absolute;
   z-index: 4;
   margin-left: -125px;
-  width: 250px;
-  
-  
+  width: 250px;  
 }
 
 .skip {
