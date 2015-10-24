@@ -12,41 +12,46 @@ h1 {
 }
 
 .space {
-  cursor:default; 
+  cursor: default; 
   width: 600px;
   width: 100%;
   margin: auto;
   display: block;
 }
 
-.break-set, .work-set {
+.breakSet, .workSet {
   display: inline-block;
 }
 
-.setters {
-  
+button {
+  transition: 0.2s;
+  color: #CCFFFF;
+  background: #333;
+  margin: 2px;
+  padding: 2px;
 }
 
-.break-set {
+.breakSet {
   float: left;
   margin-left: 150px;
   color: #33FF99;
   text-align: center;  
 }
 
-.work-set {
+.workSet {
   float: right;
   margin-right: 150px;
   color: #00CCCC;
   text-align: center; 
 }
 
-.bplus, .btime, .bminus, .wplus, .wtime, .wminus {
+.breakPlus, .breakTime, .breakMinus,
+.workPlus, .workTime, .workMinus {
   font-size: 2em;
   padding: 0 10px 0 10px; 
 }
 
-.circle-clock {
+.circleClock {
   text-align: center; /* */
   width: 300px;
   height: 300px;
@@ -58,7 +63,7 @@ h1 {
   cursor: pointer;
 }
 
-.time-left {
+.timeLeft {
   font-size: 4.5em;
   text-align: center;
   position: absolute;
@@ -69,11 +74,11 @@ h1 {
   width: 250px;
 }
 
-.break-fill {
+.breakFill {
   background-color: #33FF99; 
 }
 
-.work-fill {
+.workFill {
   background-color: #00CCCC;
 }
 
