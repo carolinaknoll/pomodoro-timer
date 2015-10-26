@@ -61,24 +61,15 @@ function timerLoop() {
   }
 }
 
-$('.breakMinus').click(function() {
-  if (breakTime > 0) {
-    breakTime -= 1;
-    $('.breakTime').text(breakTime + ' min');
-  }
-});
-
 $('.breakPlus').click(function() {
   breakTime += 1;
   $('.breakTime').text(breakTime + ' min');
 });
 
-$('.workLess').click(function() {
-  if (workTime > 0) {
-    workTime -= 1;
-    minutes = workTime;
-    seconds = 60;
-    $('.workTime').text(workTime + ' min');
+$('.breakMinus').click(function() {
+  if (breakTime > 0) {
+    breakTime -= 1;
+    $('.breakTime').text(breakTime + ' min');
   }
 });
 
@@ -89,7 +80,17 @@ $('.workPlus').click(function() {
   $('.workTime').text(workTime + ' min');
 });
 
-$('.start').click(function() {
+
+$('.workMinus').click(function() {
+  if (workTime > 0) {
+    workTime -= 1;
+    minutes = workTime;
+    seconds = 60;
+    $('.workTime').text(workTime + ' min');
+  }
+});
+
+$('.circleClock').click(function() {
   if (timerOn) {
     timerOn = false;
   } 

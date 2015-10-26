@@ -3,41 +3,34 @@
   <head>
     <link rel="stylesheet" href="css/pomodoro-clock.css"> 
     <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
-    <script src="/js/pomodoro-clock.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/pomodoro-clock.js"></script>    
   </head>
   <body>
     <div class="space">
       <h1 class="title">Pomodoro Clock</h1>
       <div class="setters">
         <div class="breakSet">
-          <h2 class="breakText">Break time</h2>
-          <!-- <span class="breakPlus">+</span>
-          <span class="breakTime">5</span>
-          <span class="breakMinus">-</span> -->
-  
+          <h2 class="breakText">Break time</h2> 
           <button class="breakPlus">+</button>
-          <span class="breakTime">5</span>
+          <span class="breakTime">5 min</span>
           <button class="breakMinus">-</button>
         </div>
       
         <div class="workSet">
           <h2 class=workText>Work time</h2>
           <button class="workPlus">+</button>
-          <span class="workTime">25</span>
+          <span class="workTime">25 min</span>
           <button class="workMinus">-</button>
         </div>
       </div>
       
       <div class="circleClock">
-        <h3><span class="minutes">25</span>:<span class="seconds">00</span></h3>
-        
-         <!-- <div class="timeLeft">25:00</div> -->
-          <div class="breakFill"> </div>
-          <div class="workFill"> </div>
-          <div class="status">Click to start</div>
+        <div class="clockTime">
+          <h3><span class="minutes">25</span>:<span class="seconds">00</span></h3>
+        </div>
+        <div class="status">Click to start</div>
       </div>
-          <div class="skip">Skip section</div>
-          <div class="reset">Reset clock</div>
     </div>
   </body>
 </html>
