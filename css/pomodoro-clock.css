@@ -11,6 +11,11 @@ h1 {
   text-align: center;  
 }
 
+h1 span {
+  color: red;
+  text-shadow: 4px 2px 4px rgba(255, 0, 0, 0.4);
+}
+
 .space {
   cursor: default; 
   width: 600px;
@@ -55,9 +60,9 @@ button {
 .setters {
   width: 750px;
   height: 150px;
-  border-radius: 30px;
-  border: 3px solid #FFF;
+  border-radius: 30px; 
   margin-bottom: 30px;
+  background: #666;
 }
 
 .circleClock {
@@ -70,6 +75,7 @@ button {
   box-shadow: 3px 3px 3px rgba(0,0,0, 0.5);
   overflow: hidden;
   cursor: pointer;
+  background: #4D0000;
 }
 
 .clockTime {
@@ -89,5 +95,31 @@ button {
   position: absolute;
   z-index: 4;
   margin-left: -125px;
-  width: 250px;  
+  width: 250px;
+}
+
+footer {
+  margin-top: 100px;
+  background: #666;
+  height: 80px;
+  padding: 5px;
+  border: 2px;
+  border-radius: 20px;
+  align: center;
+}
+
+footer p, a {
+  text-align: center;
+  color: #FFF;
+  text-decoration: none;
+  padding: 10px; 
+}
+
+footer ul li {
+  margin-left: 10px;
+  border: 2px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: #FFF;
+  display: inline; 
 }
