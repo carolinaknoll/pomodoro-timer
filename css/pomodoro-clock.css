@@ -9,6 +9,14 @@ body {
     min-height: 100%;
     max-width: 100%;
     max-height: auto;
+    
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f2f6f8+0,d8e1e7+50,b5c6d0+51,e0eff9+100;Grey+Gloss+%232 */
+background: #f2f6f8; /* Old browsers */
+background: -moz-linear-gradient(top,  #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #f2f6f8 0%,#d8e1e7 50%,#b5c6d0 51%,#e0eff9 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #f2f6f8 0%,#d8e1e7 50%,#b5c6d0 51%,#e0eff9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9',GradientType=0 ); /* IE6-9 */
+
 
 }
 
@@ -81,11 +89,11 @@ button {
     height: 250px;
     margin: auto;
     border-radius: 60%;
-    border: 3px solid #FFF;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    border: 5px solid #E8ED93; /*
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5); */
     overflow: hidden;
     cursor: pointer;
-    background: #4D0000;
+    background: #ff8080; /* #4D0000 */
 }
 
 .clockTime {
@@ -100,7 +108,7 @@ button {
 
 
 .footer {
-    background: #33ADFF no-repeat 50% 50%;
+    background: #7EACCC no-repeat 50% 50%;
     background-size: cover;
     min-height: 100%;
     max-width: 100%;
@@ -113,7 +121,7 @@ button {
     margin-right: auto;
     position: relative;
     min-height: 100%;
-    border-top: 8px #4dd2ff outset;
+    border-top: 8px #E8ED93 outset;
 }
 
 .footer p,
@@ -172,7 +180,7 @@ a {
 }
 
 .footer p span {
-    color: #ffff66;
+    color: #ffff66; 
 }
 
 @media screen and (max-width: 315px) {    
