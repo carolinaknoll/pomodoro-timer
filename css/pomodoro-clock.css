@@ -16,18 +16,17 @@ background: -moz-linear-gradient(top,  #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0
 background: -webkit-linear-gradient(top,  #f2f6f8 0%,#d8e1e7 50%,#b5c6d0 51%,#e0eff9 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to bottom,  #f2f6f8 0%,#d8e1e7 50%,#b5c6d0 51%,#e0eff9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9',GradientType=0 ); /* IE6-9 */
-
-
 }
 
 h1 {
+    color: #E8ED93;
     font-size: 4em;
     text-shadow: 4px 2px 4px rgba(100, 100, 100, 0.4);
     text-align: center;
 }
 
 h1 span {
-    color: red;
+    color: #ff8080;
     text-shadow: 4px 2px 4px rgba(255, 0, 0, 0.4);
 }
 
@@ -50,37 +49,52 @@ button {
     padding: 2px;
 }
 
+.breakSet, 
+.workSet {
+    color: #FFF; /* #33FF99; */
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 300;
+    border-radius: 10px;
+    width: 250px;
+    min-height: 100%;
+    max-width: 100%;
+    padding: 10px;
+    background: #7EACCC;
+    border: 5px solid #E8ED93;
+    margin-bottom: 30px;
+}
+
 .breakSet {
     float: left;
     margin-left: 150px;
-    color: #33FF99;
-    text-align: center;
 }
 
 .workSet {
     float: right;
     margin-right: 150px;
-    color: #00CCCC;
-    text-align: center;
 }
 
-.breakPlus,
+.button {
+    background: #ff8080;
+    border: 2px solid #E8ED93;
+    font-size: 2em;
+    padding: 0 10px 0 10px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    line-height: 1.0;
+}
+
 .breakTime,
-.breakMinus,
-.workPlus,
-.workTime,
-.workMinus {
+.workTime {
     font-size: 2em;
     padding: 0 10px 0 10px;
     cursor: pointer;
 }
 
-.setters { /*
-    width: 750px; */
-    height: 150px;
-    border-radius: 30px;
+.setters { 
     margin-bottom: 30px;
-    background: #666;
 }
 
 .circleClock {
@@ -105,8 +119,6 @@ button {
     font-size: 1.2em; 
 }
 
-
-
 .footer {
     background: #7EACCC no-repeat 50% 50%;
     background-size: cover;
@@ -114,7 +126,7 @@ button {
     max-width: 100%;
     max-height: auto;
     padding: 5px;
-    margin-top: 200px;
+    margin-top: 350px;
     font-size: 1.4em;
     text-align: center;
     margin-left: auto;
