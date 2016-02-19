@@ -1,5 +1,5 @@
-#### Pomodoro-Timer
-:hourglass: Timer based on the Pomodoro technique. Created using HTML, CSS and jQuery.
+#### :hourglass: Pomodoro-Timer
+:octocat: Timer based on the Pomodoro technique. Created using HTML, CSS and jQuery.
 ***
 The idea for this project came from FreeCodeCamp, where the project is one of a total of 9 front-end development related projects. My Pomodoro Timer is responsive and has a different color scheme that fits well without being too disturbing or attracting much attention, which is good for having good productive sessions.
 ##### With this project, I learned to...   
