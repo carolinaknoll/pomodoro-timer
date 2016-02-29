@@ -25,7 +25,7 @@ body {
     /* IE6-9 */
 }
 
-        /*     Project Container    */
+/* Project Container */
 
 .container {
     width: 100%;
@@ -33,7 +33,7 @@ body {
     margin: 0 auto;
 }
 
-        /*     Project Title     */
+/* Project Title */
 
 h1 {
     color: #80ffaa;
@@ -54,11 +54,9 @@ h2 {
     margin-bottom: 40px; 
 }
 
-h2 a {
-    color: #ff8080;   
-}
+h2 a { color: #ff8080; }
 
-        /*    Circle Timer     */
+/* Circle Timer */
 
 .circleClock {
     text-align: center;
@@ -81,39 +79,26 @@ h2 a {
 
 .status { 
     font-size: 1.5em;
-    margin-top: -40px;
-    
+    margin-top: -40px;  
 }
 
-        /*   Time Setters   */
-
-.breakSetter,
-.workSetter {
-    display: inline-block;
-}
-
-button {
-    transition: 0.2s;
-    color: #80ffaa;
-    margin: 2px;
-    padding: 2px;
-    border-radius: 5px;
-}
+/* Time Setters */
 
 .breakSetter, 
 .workSetter {
+    display: inline-block; 
     color: #FFF;
     text-align: center;
     font-size: 1.0em;
     font-weight: 300;
-    width: 220px;
+    width: 240px;
     min-height: 100%;
     max-width: 100%;
     padding: 10px;
     background: #91b8d4;
     border: 5px solid #80ffaa;
     border-radius: 10px;
-    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5); 
+    box-shadow: 1px 1px 20px rgba(0,0,0, .5); 
     margin-bottom: 30px;
 }
 
@@ -134,11 +119,19 @@ button {
     margin-right: 100px;
 } 
 
+button {
+    transition: 0.2s;
+    color: #80ffaa;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
 .button {
     background: #ff8080;
     border: 2px solid #80ffaa;
     font-size: 2em;
-    padding: 0px 10px 0px 10px;
+    padding: 0px 10px;
     cursor: pointer;
     width: 50px;
     height: 50px;
@@ -152,11 +145,9 @@ button {
     cursor: pointer;
 }
 
-.setters { 
-    margin-bottom: 30px;
-}
+.setters { margin-bottom: 30px; }
 
-        /*   Footer  */
+/* Footer */
 
 .footer {
     background: #7EACCC no-repeat 50% 50%;
@@ -206,40 +197,34 @@ a {
     text-shadow: 2px 1px 2px #333;
 }
 
-.footer .contact .fa:hover {
-    background-color: #e6b800;
-}
+.footer .contact .fa:hover { background-color: #e6b800; }
 
-.footer .linkedin .fa:hover {
-    background-color: #117BB7;
-}
+.footer .linkedin .fa:hover { background-color: #117BB7; }
 
-.footer .github .fa:hover {
-    background-color: #24478f;
-}
+.footer .github .fa:hover { background-color: #24478f; }
 
-.footer .twitter .fa:hover {
-    background-color: #007acc;
-}
+.footer .twitter .fa:hover { background-color: #007acc; }
 
-.footer .codepen .fa:hover {
-    background-color: #ff6600;
-}
+.footer .codepen .fa:hover { background-color: #ff6600; }
 
-.footer .freecodecamp .fa:hover {
-    background-color: #009933;
-}
+.footer .freecodecamp .fa:hover { background-color: #009933; }
 
-.footer p span {
-    color: #80ffaa; 
-}
+.footer p span { color: #80ffaa; }
 
-        /*   Media Queries     */
+/* Media Queries */
 
-@media screen and (max-width: 315px) {    
-    .footer {
-        margin-top: 50px;
+@media screen and (max-width: 315px) {
+    .title {
+        font-size: 3.2em;
+        line-height: 0.8;
     }
+    
+    h2 {
+        line-height:1.1;
+        padding-top: 10px;
+    }
+    
+    .footer { margin-top: 50px; }
 
     .footer ul {
         padding-top: 10px;
@@ -262,15 +247,17 @@ a {
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 650px) {  
+    .title { line-height: 0.8; }
+    
     .circleClock {
         width: 200px;
         height: 200px;
-    }    
-    
-    .space {
-        float: center;
     }
+    
+    .clockTime { font-size: 2.6em; }
+    
+    .space { float: center; }
     
     .setters {
         display: flex;
@@ -284,15 +271,10 @@ a {
         margin-bottom: 20px !important;
     }
     
-    .footer {
-        margin-top: 20px !important;
-    }
-    
-
+    .footer { margin-top: 20px !important; }
 }
 
-@media screen and (max-width: 850px) {
-    
+@media screen and (max-width: 850px) { 
     .circleClock {
         width: 200px;
         height: 200px;
@@ -304,7 +286,7 @@ a {
         width: 200px;
         height: 100px; 
         margin-top: 30px;
-}
+    }
     
     .breakSetter p,
     .workSetter p {
@@ -312,17 +294,16 @@ a {
         margin-bottom: 10px;
     }
     
-    .breakSetter {
-        margin-left: 50px;
-    }
+    .breakSetter { margin-left: 50px; }
 
-    .workSetter { 
-        margin-right: 50px;
-    } 
+    .workSetter { margin-right: 50px; }
     
-    .footer { 
-        margin-top: 350px;
+    .button {
+        width: 40px;
+        height: 40px;
     }
+    
+    .footer { margin-top: 350px; }
     
     .footer .fa {
         font-size: 1.0em;
@@ -332,6 +313,5 @@ a {
         height: 25px;
         line-height: 1.2;
         display: inline-block;      
-    }
-    
+    }   
 }
