@@ -1,7 +1,7 @@
 /*global $, jQuery, alert*/
 /*global alert: false, console: false */
 
-var minutes = 25,
+var minutes = 24,
     seconds = 60,
     workTime = 25,
     breakTime = 5,
@@ -46,28 +46,33 @@ function timerLoop() {
 
         function timeForBreak() {
             isBreak = true;
-            minutes = breakTime;
+            minutes = (breakTime - 1);
             $('.minutes').text(minutes);
             seconds = 60;
+            isBreak = false;
         }
     }
 }
 
 $('.breakPlus').click(function () {
     breakTime += 1;
+    minutes = (breakTime - 1);
+    seconds = 60;
     $('.breakTime').text(breakTime + ' min');
 });
 
 $('.breakMinus').click(function () {
     if (breakTime > 0) {
         breakTime -= 1;
+        minutes = (breakTime - 1);
+        seconds = 60;
         $('.breakTime').text(breakTime + ' min');
     }
 });
 
 $('.workPlus').click(function () {
     workTime += 1;
-    minutes = workTime;
+    minutes = (workTime - 1);
     seconds = 60;
     $('.workTime').text(workTime + ' min');
 });
@@ -76,7 +81,7 @@ $('.workPlus').click(function () {
 $('.workMinus').click(function () {
     if (workTime > 0) {
         workTime -= 1;
-        minutes = workTime;
+        minutes = (workTime - 1);
         seconds = 60;
         $('.workTime').text(workTime + ' min');
     }
