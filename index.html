@@ -17,35 +17,39 @@
   <body>
     <div class="space">
       <div class="container">
+
         <h1 class="title">P<span>o</span>m<span>o</span>d<span>o</span>r<span>o</span> Timer</h1>
         <h2>Online timer based on the
           <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">
             Pomodoro Technique.</a>
         </h2>
 
-        <div class="circleClock">
-          <div class="clockTime">
+        <div id="circleClock" class="circleClock">
+          <div id="clockTime" class="clockTime">
             <h3>
-              <span class="minutes">25</span>:<span class="seconds">00</span>
+              <span id="minutes" class="minutes">25</span>:
+              <span id="seconds" class="seconds">00</span>
             </h3>
           </div>
           <div class="status">Click to start!</div>
         </div>
 
         <div class="setters">
+
           <div class="breakSetter">
             <p class="breakText">Break time</p>
-            <button class="button breakPlus">+</button>
-            <span class="breakTime">5 min</span>
-            <button class="button breakMinus">-</button>
+            <button id="breakPlus" class="button breakPlus">+</button>
+            <span id="breakTime" class="breakTime">5 min</span>
+            <button id="breakMinus" class="button breakMinus">-</button>
           </div>
 
           <div class="workSetter">
-            <p class=workText>Work time</p>
-            <button class="button workPlus">+</button>
-            <span class="workTime">25 min</span>
-            <button class="button workMinus">-</button>
+            <p class="workText">Work time</p>
+            <button id="workPlus" class="button workPlus">+</button>
+            <span id="workTime" class="workTime">25 min</span>
+            <button id="workMinus" class="button workMinus">-</button>
           </div>
+
         </div>
       </div>
     </div>
