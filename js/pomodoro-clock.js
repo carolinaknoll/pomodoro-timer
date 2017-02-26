@@ -92,8 +92,10 @@ $('#workMinus').click(function () {
 $('#circleClock').click(function () {
   if (timerOn) {
     timerOn = false;
+    $('#clockStatus').text('Click to start again!');
   } else {
     timerOn = true;
     timerLoop();
+    $('#clockStatus').text('Timer is running...');
   }
 });
