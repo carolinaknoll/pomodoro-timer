@@ -1,38 +1,44 @@
-var minutes = 24,
+let minutes = 24,
   seconds = 60,
   workTime = 25,
   breakTime = 5,
   isBreak = false,
   timerOn = false;
 
-function timerLoop() {
-  var wav = 'http://www.oringz.com/oringz-uploads/sounds-917-communication-channel.mp3';
-  var audio = new Audio(wav);
+const timerLoop = () => {
+  const wav = 'http://www.oringz.com/oringz-uploads/sounds-917-communication-channel.mp3';
+  const audio = new Audio(wav);
 
   if (timerOn) {
     $('#minutes').text(minutes);
+
     if (seconds > 0) {
       seconds -= 1;
 
       if (seconds < 10) {
         $('#seconds').text('0' + seconds);
+
       } else {
         $('#seconds').text(seconds);
       }
+
       setTimeout(timerLoop, 1000);
 
-    } else if ((minutes + seconds) > 0) {
+    } else if (minutes + seconds > 0) {
       minutes -= 1;
       $('#minutes').text(minutes);
       seconds = 60;
       timerLoop();
+
     } else {
+
       if (isBreak) {
         audio.play();
         minutes = workTime;
         $('#minutes').text(minutes);
         seconds = 60;
         timerLoop();
+
       } else {
         audio.play();
         timeForBreak();
@@ -40,7 +46,7 @@ function timerLoop() {
       }
     }
 
-    function timeForBreak() {
+    const timeForBreak = () => {
       isBreak = true;
       minutes = (breakTime - 1);
       $('#minutes').text(minutes);
