@@ -7,6 +7,7 @@ The idea for this project came from FreeCodeCamp, where the project is one of a 
 – Play a sound to alert the user when the session is over.   
 – Add words after HTML elements with jQuery when they meet a certain set of rules.  
 – Use functions to determine the various states of the pomodoro timer.  
-##### Known bugs  *(Fixed!)*   
-– Timer always counts one more minute than it should.   
-– Not enough space on the setter boxes when big numbers are reached (80, 90, 99+ and so on).
+##### Known bugs  
+– Timer always counts one more minute than it should. *(Fixed!)*      
+– Not enough space on the setter boxes when big numbers are reached (80, 90, 99+ and so on). *(Fixed!)*   
+– Current audio sound is giving a `404 not found` error and needs to be changed. *(To do!)*   
