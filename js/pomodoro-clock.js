@@ -6,7 +6,7 @@ let minutes = 24,
   timerOn = false;
 
 const timerLoop = () => {
-  const wav = 'http://www.oringz.com/oringz-uploads/sounds-917-communication-channel.mp3';
+  const wav = 'martian-gun.mp3';
   const audio = new Audio(wav);
 
   if (timerOn) {
