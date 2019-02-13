@@ -58,8 +58,7 @@ h2 a {
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   height: 250px;
-  margin-bottom: 30px;
-  margin: auto;
+  margin: 30px auto;
   overflow: hidden;
   text-align: center;
   width: 250px;
@@ -75,6 +74,23 @@ h2 a {
   margin-top: -40px;
 }
 
+.reset {
+  text-align: center;
+}
+
+.reset button {
+  background: #ff8080;
+  border-radius: 5px;
+  border: 4px solid #80ffaa;
+  color: #80ffaa;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 2em;
+  line-height: 1.0;
+  margin: 2px;
+  padding: 6px;
+  transition: 0.2s;
+}
 
 /* Time Setters */
 .break-setter,
@@ -112,7 +128,8 @@ h2 a {
   margin-right: 100px;
 }
 
-button {
+.work-setter button,
+.break-setter button {
   background: #ff8080;
   border-radius: 5px;
   border: 2px solid #80ffaa;

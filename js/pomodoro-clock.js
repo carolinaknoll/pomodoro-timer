@@ -10,21 +10,12 @@ const timerLoop = () => {
   const audio = new Audio(wav);
 
   if (timerOn) {
-    if (minutes < 10) {
-      $('#minutes').text('0' + minutes);
-    } else {
-      $('#minutes').text(minutes);
-    }
 
     if (seconds > 0) {
       seconds -= 1;
 
-      if (seconds < 10) {
-        $('#seconds').text('0' + seconds);
-
-      } else {
-        $('#seconds').text(seconds);
-      }
+      padNumber(minutes, '#minutes');
+      padNumber(seconds, '#seconds');
 
       setTimeout(timerLoop, 1000);
 
@@ -57,6 +48,14 @@ const timerLoop = () => {
       seconds = 60;
       isBreak = false;
     }
+  }
+}
+
+const padNumber = (number, displayId) => {
+  if (number < 10) {
+    $(displayId).text('0' + number);
+  } else {
+    $(displayId).text(number);
   }
 }
 
@@ -105,4 +104,12 @@ $('#start_stop').click(function () {
     timerLoop();
     $('#timer-label').text('Timer is running...');
   }
+});
+
+$('#reset').click(function () {
+  timerOn = false;
+  $('#minutes, #seconds').text('00');
+  $('#break-length').text('5');
+  $('#session-length').text('25');
+  $('#timer-label').text('Click to start again!');
 });
