@@ -1,34 +1,37 @@
-body {
-  font-family: Dosis;
-  color: #FFF;
-  box-sizing: border-box;
-  background-size: cover;
-  min-height: 100%;
-  max-width: 100%;
-  max-height: auto;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f2f6f8+0,d8e1e7+50,b5c6d0+51,e0eff9+100;Grey+Gloss+%232 */
-  background: #f2f6f8;
-  background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
-  background: -webkit-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
-  background: linear-gradient(to bottom, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0);
+html, body {
+  margin: 0;
+  width: 100%;
 }
 
+body {
+  background-size: cover;
+  background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+  background: -webkit-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+  background: #f2f6f8;
+  background: linear-gradient(to bottom, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+  box-sizing: border-box;
+  color: #FFF;
+  display: flex;
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0);
+  flex-direction: column;
+  font-family: Dosis;
+  height: 100vh;
+}
 
 /* Project Container */
 .container {
-  width: 100%;
-  max-width: 1140px;
+  flex: 1 0 auto;
   margin: 0 auto;
+  max-width: 1140px;
+  width: 100%;
 }
-
 
 /* Project Title */
 h1 {
   color: #80ffaa;
   font-size: 4em;
-  text-shadow: 4px 2px 4px rgba(100, 100, 100, 0.4);
   text-align: center;
+  text-shadow: 4px 2px 4px rgba(100, 100, 100, 0.4);
 }
 
 h1 span {
@@ -38,29 +41,28 @@ h1 span {
 
 h2 {
   color: #91b8d4;
-  text-align: center;
-  margin-top: -40px;
   margin-bottom: 40px;
+  margin-top: -40px;
+  text-align: center;
 }
 
 h2 a {
   color: #ff8080;
 }
 
-
 /* Circle Timer */
 .circle-clock {
-  text-align: center;
-  width: 250px;
-  height: 250px;
-  margin: auto;
+  background: #ff8080;
   border-radius: 60%;
   border: 5px solid #80ffaa;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
   cursor: pointer;
-  background: #ff8080;
+  height: 250px;
   margin-bottom: 30px;
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+  width: 250px;
 }
 
 .clock-time {
@@ -77,27 +79,27 @@ h2 a {
 /* Time Setters */
 .break-setter,
 .work-setter {
-  display: inline-block;
+  background: #91b8d4;
+  border-radius: 10px;
+  border: 5px solid #80ffaa;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, .5);
   color: #FFF;
-  text-align: center;
+  display: inline-block;
   font-size: 1.0em;
   font-weight: 300;
-  width: 240px;
-  min-height: 100%;
-  max-width: 100%;
-  padding: 10px;
-  background: #91b8d4;
-  border: 5px solid #80ffaa;
-  border-radius: 10px;
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, .5);
   margin-bottom: 30px;
+  max-width: 100%;
+  min-height: 100%;
+  padding: 10px;
+  text-align: center;
+  width: 240px;
 }
 
 .break-setter p,
 .work-setter p {
   font-size: 2em;
-  margin-top: -5px;
   margin-bottom: 10px;
+  margin-top: -5px;
 }
 
 .break-setter {
@@ -111,26 +113,26 @@ h2 a {
 }
 
 button {
-  transition: 0.2s;
-  color: #80ffaa;
-  margin: 2px;
-  padding: 2px;
-  border-radius: 5px;
   background: #ff8080;
+  border-radius: 5px;
   border: 2px solid #80ffaa;
-  font-size: 2em;
-  padding: 0px 10px;
+  color: #80ffaa;
   cursor: pointer;
-  width: 50px;
+  font-size: 2em;
   height: 50px;
   line-height: 1.0;
+  margin: 2px;
+  padding: 0px 10px;
+  padding: 2px;
+  transition: 0.2s;
+  width: 50px;
 }
 
 .break-time,
 .work-time {
+  cursor: pointer;
   font-size: 2em;
   padding: 0 10px 0 10px;
-  cursor: pointer;
 }
 
 .setters {
@@ -140,27 +142,21 @@ button {
 
 /* Footer */
 .footer {
-  background: #7EACCC no-repeat 50% 50%;
   background-size: cover;
-  min-height: 100%;
-  max-width: 100%;
-  max-height: auto;
-  padding: 5px;
-  margin-top: 350px;
-  font-size: 1.4em;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  min-height: 100%;
+  background: #7EACCC no-repeat 50% 50%;
   border-top: 8px #80ffaa outset;
+  flex-shrink: 0;
+  font-size: 1.4em;
+  margin: 100px auto 0;
+  text-align: center;
+  width: 100%;
 }
 
 .footer p,
-a {
+.footer a {
   color: #FFF;
-  text-decoration: none;
   padding: 0px;
+  text-decoration: none;
 }
 
 .footer ul li {
@@ -170,21 +166,21 @@ a {
 }
 
 .footer .fa {
-  color: #FFF;
-  text-align: center;
-  font-size: 1.3em;
-  border: 2px solid #FFF;
   border-radius: 50%;
-  padding: 8px;
-  margin: 5px;
-  width: 40px;
+  border: 2px solid #FFF;
+  color: #FFF;
+  font-size: 1.3em;
   height: 40px;
   line-height: 1.4;
+  margin: 5px;
+  padding: 8px;
+  text-align: center;
+  width: 40px;
 }
 
 .footer .fa:hover {
-  transition: 0.3s;
   text-shadow: 2px 1px 2px #333;
+  transition: 0.3s;
 }
 
 .footer .contact .fa:hover {
@@ -215,7 +211,6 @@ a {
   color: #80ffaa;
 }
 
-
 /* Media Queries */
 @media screen and (max-width: 315px) {
   .title {
@@ -230,21 +225,21 @@ a {
     margin-top: 50px;
   }
   .footer ul {
-    padding-top: 10px;
     margin: 0px;
+    padding-top: 10px;
   }
   .footer ul li {
-    width: 100%;
     margin: auto;
+    width: 100%;
   }
   .footer .fa {
+    display: inline-block;
     font-size: 1.0em;
-    padding: 8px;
-    margin: 2px;
-    width: 25px;
     height: 25px;
     line-height: 1.2;
-    display: inline-block;
+    margin: 2px;
+    padding: 8px;
+    width: 25px;
   }
 }
 
@@ -253,8 +248,8 @@ a {
     line-height: 0.8;
   }
   .circle-clock {
-    width: 200px;
     height: 200px;
+    width: 200px;
   }
   .clock-time {
     font-size: 2.6em;
@@ -279,20 +274,20 @@ a {
 
 @media screen and (max-width: 850px) {
   .circle-clock {
-    width: 200px;
     height: 200px;
+    width: 200px;
   }
   .break-setter,
   .work-setter {
     font-size: 0.8em;
-    width: 200px;
     height: 100px;
     margin-top: 30px;
+    width: 200px;
   }
   .break-setter p,
   .work-setter p {
-    margin-top: -5px;
     margin-bottom: 10px;
+    margin-top: -5px;
   }
   .break-setter {
     margin-left: 50px;
@@ -301,19 +296,19 @@ a {
     margin-right: 50px;
   }
   button {
-    width: 40px;
     height: 40px;
+    width: 40px;
   }
   .footer {
     margin-top: 350px;
   }
   .footer .fa {
+    display: inline-block;
     font-size: 1.0em;
-    padding: 8px;
-    margin: 2px;
-    width: 25px;
     height: 25px;
     line-height: 1.2;
-    display: inline-block;
+    margin: 2px;
+    padding: 8px;
+    width: 25px;
   }
 }
