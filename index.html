@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html lang="en">
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -15,41 +14,34 @@
   </head>
 
   <body>
-    <div class="space">
-      <div class="container">
+    <div class="container">
 
-        <h1 class="title">P<span>o</span>m<span>o</span>d<span>o</span>r<span>o</span> Timer</h1>
-        <h2>Online timer based on the
-          <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">
-            Pomodoro Technique.</a>
-        </h2>
+      <h1 class="title">P<span>o</span>m<span>o</span>d<span>o</span>r<span>o</span> Timer</h1>
+      <h2>Online timer based on the <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique"> Pomodoro Technique.</a></h2>
 
-        <div id="circleClock" class="circle-clock">
-          <div id="clockTime" class="clock-time">
-            <h3>
-              <span id="minutes">25</span>:
-              <span id="seconds">00</span>
-            </h3>
-          </div>
-          <div id="clockStatus" class="status">Click to start!</div>
+      <div id="start_stop" class="circle-clock">
+        <div id="time-left" class="clock-time">
+          <h3>
+            <span id="minutes">25</span>:
+            <span id="seconds">00</span>
+          </h3>
+        </div>
+        <div id="timer-label" class="status">Click to start!</div>
+      </div>
+
+      <div class="setters">
+        <div class="break-setter">
+          <p id="break-label">Break time</p>
+          <button id="break-increment">+</button>
+          <p class="break-length"><span id="break-length">5</span> min</p>
+          <button id="break-decrement">-</button>
         </div>
 
-        <div class="setters">
-
-          <div class="break-setter">
-            <p class="breakText">Break time</p>
-            <button id="breakPlus">+</button>
-            <span id="breakTime" class="break-time">5 min</span>
-            <button id="breakMinus">-</button>
-          </div>
-
-          <div class="work-setter">
-            <p class="workText">Work time</p>
-            <button id="workPlus">+</button>
-            <span id="workTime" class="work-time">25 min</span>
-            <button id="workMinus">-</button>
-          </div>
-
+        <div class="work-setter">
+          <p id="session-label">Work time</p>
+          <button id="session-increment">+</button>
+          <p class="session-length"><span id="session-length">25</span> min</p>
+          <button id="session-decrement">-</button>
         </div>
       </div>
     </div>
@@ -58,34 +50,22 @@
       <div class="row">
         <ul class="list-inline">
           <li class="contact">
-            <a href="mailto:carolinasknoll@gmail.com">
-              <i class="fa fa-envelope"></i>
-            </a>
+            <a href="mailto:carolinasknoll@gmail.com"><i class="fa fa-envelope"></i></a>
           </li>
           <li class="linkedin">
-            <a href="https://www.linkedin.com/in/carolinaknoll">
-              <i class="fa fa-linkedin"></i>
-            </a>
+            <a href="https://www.linkedin.com/in/carolinaknoll"><i class="fa fa-linkedin"></i></a>
           </li>
           <li class="github">
-            <a href="https://github.com/carolinaknoll">
-              <i class="fa fa-github"></i>
-            </a>
+            <a href="https://github.com/carolinaknoll"><i class="fa fa-github"></i></a>
           </li>
           <li class="twitter">
-            <a href="https://twitter.com/carolina_knoll">
-              <i class="fa fa-twitter"></i>
-            </a>
+            <a href="https://twitter.com/carolina_knoll"><i class="fa fa-twitter"></i></a>
           </li>
           <li class="codepen">
-            <a href="http://codepen.io/carolinaknoll/">
-              <i class="fa fa-codepen"></i>
-            </a>
+            <a href="http://codepen.io/carolinaknoll/"><i class="fa fa-codepen"></i></a>
           </li>
           <li class="freecodecamp">
-            <a href="http://www.freecodecamp.com/carolinaknoll">
-              <i class="fa fa-fire"></i>
-            </a>
+            <a href="http://www.freecodecamp.com/carolinaknoll"><i class="fa fa-fire"></i></a>
           </li>
           <p>Made with <span>&hearts;</span> by Carolina Knoll / 2015</p>
         </ul>
@@ -93,6 +73,6 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/pomodoro-clock.js"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
   </body>
-
 </html>

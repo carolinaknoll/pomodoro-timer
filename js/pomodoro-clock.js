@@ -1,16 +1,20 @@
 let minutes = 24,
   seconds = 60,
-  workTime = 25,
-  breakTime = 5,
+  sessionLength = 25,
+  breakLength = 5,
   isBreak = false,
   timerOn = false;
 
 const timerLoop = () => {
-  const wav = 'martian-gun.mp3';
+  const wav = 'mp3/martian-gun.mp3';
   const audio = new Audio(wav);
 
   if (timerOn) {
-    $('#minutes').text(minutes);
+    if (minutes < 10) {
+      $('#minutes').text('0' + minutes);
+    } else {
+      $('#minutes').text(minutes);
+    }
 
     if (seconds > 0) {
       seconds -= 1;
@@ -24,7 +28,7 @@ const timerLoop = () => {
 
       setTimeout(timerLoop, 1000);
 
-    } else if (minutes + seconds > 0) {
+    } else if (minutes + seconds > 1) {
       minutes -= 1;
       $('#minutes').text(minutes);
       seconds = 60;
@@ -34,7 +38,7 @@ const timerLoop = () => {
 
       if (isBreak) {
         audio.play();
-        minutes = workTime;
+        minutes = sessionLength;
         $('#minutes').text(minutes);
         seconds = 60;
         timerLoop();
@@ -48,7 +52,7 @@ const timerLoop = () => {
 
     const timeForBreak = () => {
       isBreak = true;
-      minutes = (breakTime - 1);
+      minutes = (breakLength - 1);
       $('#minutes').text(minutes);
       seconds = 60;
       isBreak = false;
@@ -56,46 +60,49 @@ const timerLoop = () => {
   }
 }
 
-$('#breakPlus').click(function () {
-  breakTime += 1;
-  minutes = (breakTime - 1);
-  seconds = 60;
-  $('#breakTime').text(breakTime + ' min');
-});
-
-$('#breakMinus').click(function () {
-  if (breakTime > 0) {
-    breakTime -= 1;
-    minutes = (breakTime - 1);
+$('#break-increment').click(function () {
+  if (breakLength < 60) {
+    breakLength += 1;
+    minutes = (breakLength - 1);
     seconds = 60;
-    $('#breakTime').text(breakTime + ' min');
+    $('#break-length').text(breakLength);
   }
 });
 
-$('#workPlus').click(function () {
-  workTime += 1;
-  minutes = (workTime - 1);
-  seconds = 60;
-  $('#workTime').text(workTime + ' min');
-});
-
-
-$('#workMinus').click(function () {
-  if (workTime > 0) {
-    workTime -= 1;
-    minutes = (workTime - 1);
+$('#break-decrement').click(function () {
+  if (breakLength > 1) {
+    breakLength -= 1;
+    minutes = (breakLength - 1);
     seconds = 60;
-    $('#workTime').text(workTime + ' min');
+    $('#break-length').text(breakLength);
   }
 });
 
-$('#circleClock').click(function () {
+$('#session-increment').click(function () {
+  if (sessionLength < 60) {
+    sessionLength += 1;
+    minutes = (sessionLength - 1);
+    seconds = 60;
+    $('#session-length').text(sessionLength);
+  }
+});
+
+$('#session-decrement').click(function () {
+  if (sessionLength > 1) {
+    sessionLength -= 1;
+    minutes = (sessionLength - 1);
+    seconds = 60;
+    $('#session-length').text(sessionLength);
+  }
+});
+
+$('#start_stop').click(function () {
   if (timerOn) {
     timerOn = false;
-    $('#clockStatus').text('Click to start again!');
+    $('#timer-label').text('Click to start again!');
   } else {
     timerOn = true;
     timerLoop();
-    $('#clockStatus').text('Timer is running...');
+    $('#timer-label').text('Timer is running...');
   }
 });
