@@ -3,11 +3,11 @@ let minutes = 24,
   sessionLength = 25,
   breakLength = 5,
   isBreak = false,
-  timerOn = false;
-
-const audio = new Audio('mp3/martian-gun.mp3');
+  timerRunning = false,
+  audio = new Audio('mp3/martian-gun.mp3');
 
 const switchToBreak = () => {
+  console.log('break');
   minutes = (breakLength - 1);
   $('#minutes').text(minutes);
   seconds = 60;
@@ -16,7 +16,12 @@ const switchToBreak = () => {
 }
 
 const updateTimer = () => {
+  if (!timerRunning) {
+    return;
+  }
+
   if (seconds > 0) {
+    timerRunning = true;
     seconds -= 1;
 
     padNumber(minutes, '#minutes');
@@ -24,12 +29,15 @@ const updateTimer = () => {
     setTimeout(updateTimer, 1000);
 
   } else if (minutes + seconds > 1) {
+    timerRunning = true;
+
     minutes -= 1;
     $('#minutes').text(minutes);
     seconds = 60;
     checkTimerState();
   }
-  else {
+
+  else if (minutes + seconds === 0) {
     isBreak = true;
     audio.play();
     switchToBreak();
@@ -37,7 +45,7 @@ const updateTimer = () => {
 }
 
 checkTimerState = () => {
-  if (timerOn) {
+  if (timerRunning) {
     updateTimer();
   }
 }
@@ -50,63 +58,103 @@ const padNumber = (number, displayId) => {
   }
 }
 
-$('#break-increment').click(function () {
-  if (breakLength < 60) {
-    breakLength += 1;
-    minutes = (breakLength - 1);
-    seconds = 60;
-    $('#break-length').text(breakLength);
+const incrementSession = () => {
+  if (timerRunning) {
+    return;
   }
-});
 
-$('#break-decrement').click(function () {
-  if (breakLength > 1) {
-    breakLength -= 1;
-    minutes = (breakLength - 1);
-    seconds = 60;
-    $('#break-length').text(breakLength);
-  }
-});
-
-$('#session-increment').click(function () {
   if (sessionLength < 60) {
     sessionLength += 1;
     minutes = (sessionLength - 1);
     seconds = 60;
     $('#session-length').text(sessionLength);
   }
-});
+}
 
-$('#session-decrement').click(function () {
+const decrementSession = () => {
+  if (timerRunning) {
+    return;
+  }
+
   if (sessionLength > 1) {
     sessionLength -= 1;
     minutes = (sessionLength - 1);
     seconds = 60;
     $('#session-length').text(sessionLength);
   }
-});
+}
 
-$('#start_stop').click(function () {
-  if (timerOn) {
-    timerOn = false;
+const incrementBreak = () => {
+  if (timerRunning) {
+    return;
+  }
+
+  if (breakLength < 60) {
+    breakLength += 1;
+    minutes = (breakLength - 1);
+    seconds = 60;
+    $('#break-length').text(breakLength);
+  }
+}
+
+const decrementBreak = () => {
+  if (timerRunning) {
+    return;
+  }
+
+  if (breakLength > 1) {
+    breakLength -= 1;
+    minutes = (breakLength - 1);
+    seconds = 60;
+    $('#break-length').text(breakLength);
+  }
+}
+
+const controlTimerPause = () => {
+  if (timerRunning) {
+    timerRunning = false;
     $('#timer-label').text('Click to start again!');
   } else {
-    timerOn = true;
+    timerRunning = true;
     updateTimer();
     $('#timer-label').text('Timer is running...');
   }
-});
+}
 
-$('#reset').click(function () {
-  timerOn = false;
+const resetTimer = () => {
+  timerRunning = false;
   minutes = 25;
-  seconds = 00;
+  seconds = 0;
   breakLength = 5;
   sessionLength = 25;
 
   $('#minutes').text(minutes);
-  $('#seconds').text(seconds);
+  $('#seconds').text('00');
   $('#break-length').text(breakLength);
   $('#session-length').text(sessionLength);
   $('#timer-label').text('Click to start again!');
+}
+
+$('#session-increment').on('click', function() {
+  incrementSession();
+});
+
+$('#session-decrement').on('click', function() {
+  decrementSession();
+});
+
+$('#break-increment').on('click', function() {
+  incrementBreak();
+});
+
+$('#break-decrement').on('click', function() {
+  decrementBreak();
+});
+
+$('#start_stop').on('click', function() {
+  controlTimerPause();
+});
+
+$('#reset').on('click', function() {
+  resetTimer();
 });
