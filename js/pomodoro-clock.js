@@ -8,9 +8,16 @@ let minutes = 24,
 
 const switchToBreak = () => {
   console.log('break');
+  isBreak = true;
+  audio.play();
+
   minutes = (breakLength - 1);
-  $('#minutes').text(minutes);
   seconds = 60;
+
+  let paddedTime = padTime(minutes, seconds);
+  $('#time-left').text(paddedTime);
+
+  $('#timer-label').text('A break has begun!');
   isBreak = false;
   checkTimerState();
 }
@@ -24,22 +31,26 @@ const updateTimer = () => {
     timerRunning = true;
     seconds -= 1;
 
-    padNumber(minutes, '#minutes');
-    padNumber(seconds, '#seconds');
+    let paddedTime = padTime(minutes, seconds);
+    $('#time-left').text(paddedTime);
+
+    $('#timer-label').text('A session has begun!');
     setTimeout(updateTimer, 1000);
 
   } else if (minutes + seconds > 1) {
     timerRunning = true;
 
     minutes -= 1;
-    $('#minutes').text(minutes);
     seconds = 60;
+
+    let paddedTime = padTime(minutes, seconds);
+    $('#time-left').text(paddedTime);
+
+    $('#timer-label').text('A session has begun!');
     checkTimerState();
   }
 
   else if (minutes + seconds === 0) {
-    isBreak = true;
-    audio.play();
     switchToBreak();
   }
 }
@@ -50,12 +61,10 @@ checkTimerState = () => {
   }
 }
 
-const padNumber = (number, displayId) => {
-  if (number < 10) {
-    $(displayId).text('0' + number);
-  } else {
-    $(displayId).text(number);
-  }
+const padTime = (minutes, seconds) => {
+  const mins = minutes < 10 ? `0${minutes}` : `${minutes}`;
+  const secs = seconds < 10 ? `0${seconds}` : `${seconds}`;
+  return `${mins}:${secs}`;
 }
 
 const incrementSession = () => {
@@ -130,11 +139,12 @@ const resetTimer = () => {
   breakLength = 5;
   sessionLength = 25;
 
-  $('#minutes').text(minutes);
-  $('#seconds').text('00');
+  let paddedTime = padTime(minutes, seconds);
+  $('#time-left').text(paddedTime);
+
   $('#break-length').text(breakLength);
   $('#session-length').text(sessionLength);
-  $('#timer-label').text('Click to start again!');
+  $('#timer-label').text('Click to start!');
 }
 
 $('#session-increment').on('click', function() {
