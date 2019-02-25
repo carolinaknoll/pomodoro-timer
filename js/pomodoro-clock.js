@@ -4,7 +4,7 @@ let minutes = 24,
   breakLength = 5,
   isBreak = false,
   timerRunning = false,
-  audio = new Audio('mp3/martian-gun.mp3');
+  audio = $('#beep')[0];
 
 const switchToBreak = () => {
   console.log('break');
@@ -123,6 +123,8 @@ const controlTimerPause = () => {
 
 const resetTimer = () => {
   timerRunning = false;
+  audio.pause();
+  audio.currentTime = 0;
   minutes = 25;
   seconds = 0;
   breakLength = 5;
