@@ -14,8 +14,7 @@ const switchToBreak = () => {
   minutes = (breakLength - 1);
   seconds = 60;
 
-  let paddedTime = padTime(minutes, seconds);
-  $('#time-left').text(paddedTime);
+  updateTimerInformation(minutes, seconds);
 
   $('#timer-label').text('A break has begun!');
   isBreak = false;
@@ -31,10 +30,7 @@ const updateTimer = () => {
     timerRunning = true;
     seconds -= 1;
 
-    let paddedTime = padTime(minutes, seconds);
-    $('#time-left').text(paddedTime);
-
-    $('#timer-label').text('A session has begun!');
+    updateTimerInformation(minutes, seconds);
     setTimeout(updateTimer, 1000);
 
   } else if (minutes + seconds > 1) {
@@ -43,10 +39,7 @@ const updateTimer = () => {
     minutes -= 1;
     seconds = 60;
 
-    let paddedTime = padTime(minutes, seconds);
-    $('#time-left').text(paddedTime);
-
-    $('#timer-label').text('A session has begun!');
+    updateTimerInformation(minutes, seconds);
     checkTimerState();
   }
 
@@ -65,6 +58,12 @@ const padTime = (minutes, seconds) => {
   const mins = minutes < 10 ? `0${minutes}` : `${minutes}`;
   const secs = seconds < 10 ? `0${seconds}` : `${seconds}`;
   return `${mins}:${secs}`;
+}
+
+const updateTimerInformation = (minutes, seconds) => {
+  let paddedTime = padTime(minutes, seconds);
+  $('#time-left').text(paddedTime);
+  $('#timer-label').text('A session has begun!');
 }
 
 const incrementSession = () => {
@@ -139,8 +138,7 @@ const resetTimer = () => {
   breakLength = 5;
   sessionLength = 25;
 
-  let paddedTime = padTime(minutes, seconds);
-  $('#time-left').text(paddedTime);
+  updateTimerInformation(minutes, seconds);
 
   $('#break-length').text(breakLength);
   $('#session-length').text(sessionLength);
