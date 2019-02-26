@@ -1,5 +1,5 @@
-let minutes = 24,
-  seconds = 60,
+let minutes = 25,
+  seconds = 0,
   sessionLength = 25,
   breakLength = 5,
   isBreak = false,
@@ -11,7 +11,7 @@ const switchToBreak = () => {
   isBreak = true;
   audio.play();
 
-  minutes = (breakLength - 1);
+  minutes = breakLength - 1;
   seconds = 60;
 
   updateTimerInformation(minutes, seconds);
@@ -36,15 +36,37 @@ const updateTimer = () => {
   } else if (minutes + seconds > 1) {
     timerRunning = true;
 
-    minutes -= 1;
-    seconds = 60;
 
     updateTimerInformation(minutes, seconds);
-    checkTimerState();
+
+    if (timerRunning) {
+      minutes -= 1;
+      seconds = 60;
+      setTimeout(updateTimer, 1000);
+    }
+
+    // checkTimerState();
+  } else if (minutes === 1 && seconds === 0) {
+    minutes = 0;
+    seconds = 60;
   }
 
-  else if (minutes + seconds === 0) {
-    switchToBreak();
+  else {
+    console.log('seconds: ', seconds);
+    console.log('minutes: ', minutes);
+    console.log('minutes + seconds === 0: ', minutes + seconds === 0);
+    if (minutes + seconds === 0) {
+      // switchToBreak();
+
+      if (!isBreak) {
+        switchToBreak();
+        $('#timer-label').text('A break has begun!');
+      } else {
+        isBreak = false;
+        $('#timer-label').text('A session has begun!');
+      }
+
+    }
   }
 }
 
@@ -63,7 +85,6 @@ const padTime = (minutes, seconds) => {
 const updateTimerInformation = (minutes, seconds) => {
   let paddedTime = padTime(minutes, seconds);
   $('#time-left').text(paddedTime);
-  $('#timer-label').text('A session has begun!');
 }
 
 const incrementSession = () => {
@@ -73,8 +94,8 @@ const incrementSession = () => {
 
   if (sessionLength < 60) {
     sessionLength += 1;
-    minutes = (sessionLength - 1);
-    seconds = 60;
+    minutes = sessionLength;
+    seconds = 0;
     $('#session-length').text(sessionLength);
   }
 }
@@ -86,8 +107,8 @@ const decrementSession = () => {
 
   if (sessionLength > 1) {
     sessionLength -= 1;
-    minutes = (sessionLength - 1);
-    seconds = 60;
+    minutes = sessionLength;
+    seconds = 0;
     $('#session-length').text(sessionLength);
   }
 }
@@ -99,8 +120,8 @@ const incrementBreak = () => {
 
   if (breakLength < 60) {
     breakLength += 1;
-    minutes = (breakLength - 1);
-    seconds = 60;
+    minutes = breakLength;
+    seconds = 0;
     $('#break-length').text(breakLength);
   }
 }
@@ -112,8 +133,8 @@ const decrementBreak = () => {
 
   if (breakLength > 1) {
     breakLength -= 1;
-    minutes = (breakLength - 1);
-    seconds = 60;
+    minutes = breakLength;
+    seconds = 0;
     $('#break-length').text(breakLength);
   }
 }
@@ -121,11 +142,10 @@ const decrementBreak = () => {
 const controlTimerPause = () => {
   if (timerRunning) {
     timerRunning = false;
-    $('#timer-label').text('Click to start again!');
+    $('#timer-label').text('Timer is paused.');
   } else {
     timerRunning = true;
     updateTimer();
-    $('#timer-label').text('Timer is running...');
   }
 }
 
