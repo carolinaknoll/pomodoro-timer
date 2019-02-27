@@ -1,3 +1,9 @@
+/* Peek-a-boo, I see you! :P */
+
+/*******************************************\
+|               INITIAL STYLES              |
+\*******************************************/
+
 html, body {
   margin: 0;
   width: 100%;
@@ -14,19 +20,19 @@ body {
   display: flex;
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0);
   flex-direction: column;
-  font-family: Dosis;
-  height: 100vh;
+  font-family: 'Dosis';
 }
 
-/* Project Container */
-.container {
+/*******************************************\
+|             PROJECT CONTAINER             |
+\*******************************************/
+.pomodoro-container {
   flex: 1 0 auto;
   margin: 0 auto;
-  max-width: 1140px;
+  max-width: 992px;
   width: 100%;
 }
 
-/* Project Title */
 h1 {
   color: #80ffaa;
   font-size: 4em;
@@ -50,10 +56,12 @@ h2 a {
   color: #ff8080;
 }
 
-/* Circle Timer */
-.circle-clock {
+/*******************************************\
+|                   TIMER                   |
+\*******************************************/
+.timer {
   background: #ff8080;
-  border-radius: 60%;
+  border-radius: 100%;
   border: 5px solid #80ffaa;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
   cursor: pointer;
@@ -64,37 +72,22 @@ h2 a {
   width: 250px;
 }
 
-.clock-time {
-  font-size: 3em;
+.timer-length {
+  font-size: 3.5em;
   text-align: center;
 }
 
 .status {
   font-size: 1.5em;
+  font-weight: 300;
   margin-top: -40px;
 }
 
-.reset {
-  text-align: center;
-}
-
-.reset button {
-  background: #ff8080;
-  border-radius: 5px;
-  border: 4px solid #80ffaa;
-  color: #80ffaa;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 2em;
-  line-height: 1.0;
-  margin: 2px;
-  padding: 6px;
-  transition: 0.2s;
-}
-
-/* Time Setters */
+/*******************************************\
+|               TIMER SETTERS               |
+\*******************************************/
 .break-setter,
-.work-setter {
+.session-setter {
   background: #91b8d4;
   border-radius: 10px;
   border: 5px solid #80ffaa;
@@ -112,27 +105,25 @@ h2 a {
 }
 
 .break-setter p,
-.work-setter p {
+.session-setter p {
   font-size: 2em;
   margin-bottom: 10px;
   margin-top: -5px;
 }
 
 .break-setter {
-  float: left;
-  margin-left: 100px;
-}
-
-.work-setter {
   float: right;
-  margin-right: 100px;
 }
 
-.work-setter button,
-.break-setter button {
+.session-setter {
+  float: left;
+}
+
+.control-button {
   background: #ff8080;
   border-radius: 5px;
   border: 2px solid #80ffaa;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, .3);
   color: #80ffaa;
   cursor: pointer;
   display: inline-block;
@@ -140,15 +131,25 @@ h2 a {
   height: 50px;
   line-height: 1.0;
   margin: 2px;
-  padding: 0px 10px;
   padding: 2px;
   transition: 0.2s;
   width: 50px;
 }
 
+.reset .control-button {
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, .5);
+  height: auto;
+  margin: 2px;
+  padding: 8px;
+  width: auto;
+}
+
+.reset {
+  text-align: center;
+}
+
 .break-length,
 .session-length {
-  cursor: pointer;
   display: inline;
   font-size: 2em;
   padding: 0 10px 0 10px;
@@ -159,7 +160,9 @@ h2 a {
 }
 
 
-/* Footer */
+/*******************************************\
+|                  FOOTER                   |
+\*******************************************/
 .footer {
   background-size: cover;
   background: #7EACCC no-repeat 50% 50%;
@@ -171,21 +174,13 @@ h2 a {
   width: 100%;
 }
 
-.footer p,
-.footer a {
-  color: #FFF;
-  padding: 0px;
-  text-decoration: none;
-}
-
-.footer ul li {
+.footer .social-list li {
   display: inline;
   margin: 5px;
-  text-align: center;
 }
 
-.footer .fa {
-  border-radius: 50%;
+.footer .social-list .fa {
+  border-radius: 100%;
   border: 2px solid #FFF;
   color: #FFF;
   font-size: 1.3em;
@@ -194,12 +189,12 @@ h2 a {
   margin: 5px;
   padding: 8px;
   text-align: center;
+  transition: 0.3s;
   width: 40px;
 }
 
-.footer .fa:hover {
+.footer .social-list .fa:hover {
   text-shadow: 2px 1px 2px #333;
-  transition: 0.3s;
 }
 
 .footer .contact .fa:hover {
@@ -226,39 +221,36 @@ h2 a {
   background-color: #009933;
 }
 
-.footer p span {
+.footer .footer-note .fa {
   color: #80ffaa;
+  text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Media Queries */
+/*******************************************\
+|               MEDIA QUERIES               |
+\*******************************************/
 @media screen and (max-width: 315px) {
   .title {
     font-size: 3.2em;
-    line-height: 0.8;
   }
+
   h2 {
     line-height: 1.1;
     padding-top: 10px;
   }
+
   .footer {
     margin-top: 50px;
   }
-  .footer ul {
+
+  .footer .social-list {
     margin: 0px;
     padding-top: 10px;
   }
-  .footer ul li {
+
+  .footer .social-list li {
     margin: auto;
     width: 100%;
-  }
-  .footer .fa {
-    display: inline-block;
-    font-size: 1.0em;
-    height: 25px;
-    line-height: 1.2;
-    margin: 2px;
-    padding: 8px;
-    width: 25px;
   }
 }
 
@@ -266,68 +258,60 @@ h2 a {
   .title {
     line-height: 0.8;
   }
-  .circle-clock {
-    height: 200px;
-    width: 200px;
-  }
-  .clock-time {
+
+  .timer-length {
     font-size: 2.6em;
   }
-  .space {
-    float: center;
-  }
+
   .setters {
     display: flex;
     flex-direction: column;
     justify-content: center !important;
   }
+
   .break-setter,
-  .work-setter {
+  .session-setter {
     margin: auto !important;
     margin-bottom: 20px !important;
   }
+
   .footer {
     margin-top: 20px !important;
   }
 }
 
 @media screen and (max-width: 850px) {
-  .circle-clock {
+  .timer {
     height: 200px;
     width: 200px;
   }
+
   .break-setter,
-  .work-setter {
+  .session-setter {
     font-size: 0.8em;
     height: 100px;
     margin-top: 30px;
     width: 200px;
   }
-  .break-setter p,
-  .work-setter p {
-    margin-bottom: 10px;
-    margin-top: -5px;
-  }
+
   .break-setter {
-    margin-left: 50px;
-  }
-  .work-setter {
     margin-right: 50px;
   }
-  button {
-    height: 40px;
-    width: 40px;
+
+  .session-setter {
+    margin-left: 50px;
   }
-  .footer {
-    margin-top: 350px;
+
+  .reset .control-button {
+    margin-bottom: 20px;
   }
-  .footer .fa {
+
+  .footer .social-list .fa {
     display: inline-block;
-    font-size: 1.0em;
+    font-size: 1em;
     height: 25px;
     line-height: 1.2;
     margin: 2px;
-    padding: 8px;
     width: 25px;
   }
 }

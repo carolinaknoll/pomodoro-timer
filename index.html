@@ -6,7 +6,7 @@
     <title>Pomodoro Timer | Carolina Knoll</title>
     <meta name="description" content="Pomodoro Timer | Carolina Knoll">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="pomodoro, timer, clock, tomato, tomate, sessions, break, work, stopwatch, chronometer, cronômetro, relógio">
+    <meta name="keywords" content="pomodoro, timer, clock, timer, tomato, tomate, sessions, break, work, stopwatch, chronometer, cronômetro, relógio">
     <link rel="stylesheet" href="css/pomodoro-clock.css">
     <link href='https://fonts.googleapis.com/css?family=Dosis:300,400,600,700' rel='stylesheet' type='text/css'>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -14,35 +14,34 @@
   </head>
 
   <body>
-    <div class="container">
-
+    <div class="pomodoro-container">
       <h1 class="title">P<span>o</span>m<span>o</span>d<span>o</span>r<span>o</span> Timer</h1>
       <h2>Online timer based on the <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique"> Pomodoro Technique.</a></h2>
+      <h2>Increase or decrease the session and break lengths below as needed, and click the timer to start.</h2>
+      <h2>The timer will let you know when either a session or a break has ended by playing a sound.</h2>
 
-      <div id="start_stop" class="circle-clock">
-        <div class="clock-time">
-          <h3 id="time-left">25:00</h3>
-        </div>
-        <div id="timer-label" class="status">Click to start!</div>
+      <div id="start_stop" class="timer">
+        <h3 id="time-left" class="timer-length">25:00</h3>
+        <h4 id="timer-label" class="status">Click to start!</h4>
       </div>
 
       <div class="reset">
-        <button id="reset">Reset</button>
+        <button id="reset" class="control-button">Reset</button>
       </div>
 
       <div class="setters">
-        <div class="break-setter">
-          <p id="break-label">Break time</p>
-          <button id="break-increment">+</button>
-          <p class="break-length"><span id="break-length">5</span> min</p>
-          <button id="break-decrement">-</button>
+        <div class="session-setter">
+          <p id="session-label">Session length</p>
+          <button id="session-increment" class="control-button">+</button>
+          <p class="session-length"><span id="session-length">25</span> min</p>
+          <button id="session-decrement" class="control-button">-</button>
         </div>
 
-        <div class="work-setter">
-          <p id="session-label">Work time</p>
-          <button id="session-increment">+</button>
-          <p class="session-length"><span id="session-length">25</span> min</p>
-          <button id="session-decrement">-</button>
+        <div class="break-setter">
+          <p id="break-label">Break length</p>
+          <button id="break-increment" class="control-button">+</button>
+          <p class="break-length"><span id="break-length">5</span> min</p>
+          <button id="break-decrement" class="control-button">-</button>
         </div>
       </div>
     </div>
@@ -50,30 +49,17 @@
     <audio id="beep" src="mp3/martian-gun.mp3"></audio>
 
     <footer class="footer">
-      <div class="row">
-        <ul class="list-inline">
-          <li class="contact">
-            <a href="mailto:carolinasknoll@gmail.com"><i class="fa fa-envelope"></i></a>
-          </li>
-          <li class="linkedin">
-            <a href="https://www.linkedin.com/in/carolinaknoll"><i class="fa fa-linkedin"></i></a>
-          </li>
-          <li class="github">
-            <a href="https://github.com/carolinaknoll"><i class="fa fa-github"></i></a>
-          </li>
-          <li class="twitter">
-            <a href="https://twitter.com/carolina_knoll"><i class="fa fa-twitter"></i></a>
-          </li>
-          <li class="codepen">
-            <a href="http://codepen.io/carolinaknoll/"><i class="fa fa-codepen"></i></a>
-          </li>
-          <li class="freecodecamp">
-            <a href="http://www.freecodecamp.com/carolinaknoll"><i class="fa fa-fire"></i></a>
-          </li>
-          <p>Made with <span>&hearts;</span> by Carolina Knoll / 2015</p>
-        </ul>
-      </div>
+      <ul class="social-list">
+        <li class="contact"><a href="mailto:carolinasknoll@gmail.com"><i class="fa fa-envelope"></i></a></li>
+        <li class="linkedin"><a href="https://www.linkedin.com/in/carolinaknoll"><i class="fa fa-linkedin"></i></a></li>
+        <li class="github"><a href="https://github.com/carolinaknoll"><i class="fa fa-github"></i></a></li>
+        <li class="twitter"><a href="https://twitter.com/carolina_knoll"><i class="fa fa-twitter"></i></a></li>
+        <li class="codepen"><a href="http://codepen.io/carolinaknoll/"><i class="fa fa-codepen"></i></a></li>
+        <li class="freecodecamp"><a href="http://www.freecodecamp.com/carolinaknoll"><i class="fa fa-fire"></i></a></li>
+      </ul>
+      <p class="footer-note">Made with <i class="fa fa-heart"></i> by Carolina Knoll / 2019</p>
     </footer>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/pomodoro-clock.js"></script>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
