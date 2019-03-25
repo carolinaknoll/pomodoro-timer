@@ -9,15 +9,11 @@ let minutes = 25,
 const switchToBreak = () => {
   console.log('break');
   isBreak = true;
-  audio.play();
 
   minutes = breakLength - 1;
   seconds = 60;
 
   updateTimerInformation(minutes, seconds);
-
-  $('#timer-label').text('A break has begun!');
-  isBreak = false;
   checkTimerState();
 }
 
@@ -36,7 +32,6 @@ const updateTimer = () => {
   } else if (minutes + seconds > 1) {
     timerRunning = true;
 
-
     updateTimerInformation(minutes, seconds);
 
     if (timerRunning) {
@@ -45,27 +40,23 @@ const updateTimer = () => {
       setTimeout(updateTimer, 1000);
     }
 
-    // checkTimerState();
   } else if (minutes === 1 && seconds === 0) {
     minutes = 0;
     seconds = 60;
   }
 
   else {
-    console.log('seconds: ', seconds);
-    console.log('minutes: ', minutes);
-    console.log('minutes + seconds === 0: ', minutes + seconds === 0);
     if (minutes + seconds === 0) {
-      // switchToBreak();
+      audio.play();
 
       if (!isBreak) {
         switchToBreak();
         $('#timer-label').text('A break has begun!');
       } else {
         isBreak = false;
+        setTimeout(updateTimer, 1000);
         $('#timer-label').text('A session has begun!');
       }
-
     }
   }
 }
