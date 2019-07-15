@@ -11,10 +11,10 @@ html, body {
 
 body {
   background-size: cover;
-  background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
-  background: -webkit-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+  background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 44%, #b5c6d0 45%, #e0eff9 100%);
+  background: -webkit-linear-gradient(top, #f2f6f8 0%, #d8e1e7 44%, #b5c6d0 45%, #e0eff9 100%);
   background: #f2f6f8;
-  background: linear-gradient(to bottom, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+  background: linear-gradient(to bottom, #f2f6f8 0%, #d8e1e7 44%, #b5c6d0 45%, #e0eff9 100%);
   box-sizing: border-box;
   color: #FFF;
   display: flex;
@@ -37,12 +37,11 @@ h1 {
   color: #80ffaa;
   font-size: 4em;
   text-align: center;
-  text-shadow: 4px 2px 4px rgba(100, 100, 100, 0.4);
+  margin-bottom:80px;
 }
 
 h1 span {
   color: #ff8080;
-  text-shadow: 4px 2px 4px rgba(255, 0, 0, 0.4);
 }
 
 h2 {
@@ -63,7 +62,6 @@ h2 a {
   background: #ff8080;
   border-radius: 100%;
   border: 5px solid #80ffaa;
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   height: 250px;
   margin: 30px auto;
@@ -91,7 +89,6 @@ h2 a {
   background: #91b8d4;
   border-radius: 10px;
   border: 5px solid #80ffaa;
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, .5);
   color: #FFF;
   display: inline-block;
   font-size: 1.0em;
@@ -123,11 +120,10 @@ h2 a {
   background: #ff8080;
   border-radius: 5px;
   border: 2px solid #80ffaa;
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, .3);
-  color: #80ffaa;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-size: 2em;
+  font-size: 1.4em;
   height: 50px;
   line-height: 1.0;
   margin: 2px;
@@ -137,10 +133,9 @@ h2 a {
 }
 
 .reset .control-button {
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, .5);
   height: auto;
   margin: 2px;
-  padding: 8px;
+  padding: 14px;
   width: auto;
 }
 
@@ -158,7 +153,6 @@ h2 a {
 .setters {
   margin-bottom: 30px;
 }
-
 
 /*******************************************\
 |                  FOOTER                   |
@@ -193,10 +187,6 @@ h2 a {
   width: 40px;
 }
 
-.footer .social-list .fa:hover {
-  text-shadow: 2px 1px 2px #333;
-}
-
 .footer .contact .fa:hover {
   background-color: #e6b800;
 }
@@ -223,7 +213,10 @@ h2 a {
 
 .footer .footer-note .fa {
   color: #80ffaa;
-  text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
+}
+
+.footer .social-list {
+  padding-top: 30px;
 }
 
 /*******************************************\
@@ -241,11 +234,6 @@ h2 a {
 
   .footer {
     margin-top: 50px;
-  }
-
-  .footer .social-list {
-    margin: 0px;
-    padding-top: 10px;
   }
 
   .footer .social-list li {
