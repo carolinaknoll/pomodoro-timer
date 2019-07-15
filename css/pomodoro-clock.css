@@ -11,10 +11,10 @@ html, body {
 
 body {
   background-size: cover;
-  background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 44%, #b5c6d0 45%, #e0eff9 100%);
-  background: -webkit-linear-gradient(top, #f2f6f8 0%, #d8e1e7 44%, #b5c6d0 45%, #e0eff9 100%);
+  background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+  background: -webkit-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
   background: #f2f6f8;
-  background: linear-gradient(to bottom, #f2f6f8 0%, #d8e1e7 44%, #b5c6d0 45%, #e0eff9 100%);
+  background: linear-gradient(to bottom, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
   box-sizing: border-box;
   color: #FFF;
   display: flex;
@@ -37,11 +37,12 @@ h1 {
   color: #80ffaa;
   font-size: 4em;
   text-align: center;
-  margin-bottom:80px;
+  text-shadow: 4px 2px 4px rgba(100, 100, 100, 0.4);
 }
 
 h1 span {
   color: #ff8080;
+  text-shadow: 4px 2px 4px rgba(255, 0, 0, 0.4);
 }
 
 h2 {
@@ -62,6 +63,7 @@ h2 a {
   background: #ff8080;
   border-radius: 100%;
   border: 5px solid #80ffaa;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   height: 250px;
   margin: 30px auto;
@@ -120,10 +122,11 @@ h2 a {
   background: #ff8080;
   border-radius: 5px;
   border: 2px solid #80ffaa;
-  color: #ffffff;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, .3);
+  color: #80ffaa;
   cursor: pointer;
   display: inline-block;
-  font-size: 1.4em;
+  font-size: 2em;
   height: 50px;
   line-height: 1.0;
   margin: 2px;
@@ -135,7 +138,7 @@ h2 a {
 .reset .control-button {
   height: auto;
   margin: 2px;
-  padding: 14px;
+  padding: 8px;
   width: auto;
 }
 
@@ -191,6 +194,10 @@ h2 a {
   background-color: #e6b800;
 }
 
+.footer .social-list .fa:hover {
+  text-shadow: 2px 1px 2px #333;
+}
+
 .footer .linkedin .fa:hover {
   background-color: #117BB7;
 }
@@ -213,10 +220,6 @@ h2 a {
 
 .footer .footer-note .fa {
   color: #80ffaa;
-}
-
-.footer .social-list {
-  padding-top: 30px;
 }
 
 /*******************************************\
