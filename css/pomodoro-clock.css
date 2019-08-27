@@ -11,14 +11,10 @@ html, body {
 
 body {
   background-size: cover;
-  background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
-  background: -webkit-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
-  background: #f2f6f8;
-  background: linear-gradient(to bottom, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+  background: #353c4b;
   box-sizing: border-box;
   color: #FFF;
   display: flex;
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0);
   flex-direction: column;
   font-family: 'Dosis';
 }
@@ -60,9 +56,9 @@ h2 a {
 |                   TIMER                   |
 \*******************************************/
 .timer {
-  background: #ff8080;
+  background: #1f242d;
   border-radius: 100%;
-  border: 5px solid #80ffaa;
+  border: 4px solid #ff8080;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   height: 250px;
@@ -88,9 +84,9 @@ h2 a {
 \*******************************************/
 .break-setter,
 .session-setter {
-  background: #91b8d4;
+  background: #1f242d;
   border-radius: 10px;
-  border: 5px solid #80ffaa;
+  border: 4px solid #ff8080;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, .5);
   color: #FFF;
   display: inline-block;
@@ -120,7 +116,7 @@ h2 a {
 }
 
 .control-button {
-  background: #ff8080;
+  background: #353c4b;
   border-radius: 5px;
   border: 2px solid #80ffaa;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, .3);
@@ -137,6 +133,7 @@ h2 a {
 }
 
 .reset .control-button {
+  background: #1f242d;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, .5);
   height: auto;
   margin: 2px;
@@ -165,8 +162,8 @@ h2 a {
 \*******************************************/
 .footer {
   background-size: cover;
-  background: #7EACCC no-repeat 50% 50%;
-  border-top: 8px #80ffaa outset;
+  background: #1f242d no-repeat 50% 50%;
+  border-top: 4px #80ffaa outset;
   flex-shrink: 0;
   font-size: 1.4em;
   margin: 100px auto 0;
