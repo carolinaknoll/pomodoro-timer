@@ -2,13 +2,13 @@ let minutes = 25,
   seconds = 0,
   sessionLength = 25,
   breakLength = 5,
-  isBreak = false,
+  onSession = true,
   timerRunning = false,
   audio = document.getElementById('beep');
 
 const switchToBreak = () => {
   console.log('break');
-  isBreak = true;
+  onSession = false;
 
   minutes = breakLength - 1;
   seconds = 60;
@@ -49,11 +49,11 @@ const updateTimer = () => {
     if (minutes + seconds === 0) {
       audio.play();
 
-      if (!isBreak) {
+      if (onSession) {
         switchToBreak();
         document.getElementById('timer-label').textContent = 'A break has begun!';
       } else {
-        isBreak = false;
+        onSession = false;
         setTimeout(updateTimer, 1000);
         document.getElementById('timer-label').textContent = 'A session has begun!';
       }
@@ -148,6 +148,7 @@ const resetTimer = () => {
   seconds = 0;
   breakLength = 5;
   sessionLength = 25;
+  onSession = true;
 
   updateTimerInformation(minutes, seconds);
 
