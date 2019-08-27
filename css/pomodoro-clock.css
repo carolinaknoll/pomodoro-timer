@@ -156,7 +156,6 @@ h2 a {
   margin-bottom: 30px;
 }
 
-
 /*******************************************\
 |                  FOOTER                   |
 \*******************************************/
@@ -190,12 +189,12 @@ h2 a {
   width: 40px;
 }
 
-.footer .social-list .fa:hover {
-  text-shadow: 2px 1px 2px #333;
-}
-
 .footer .contact .fa:hover {
   background-color: #e6b800;
+}
+
+.footer .social-list .fa:hover {
+  text-shadow: 2px 1px 2px #333;
 }
 
 .footer .linkedin .fa:hover {
@@ -220,7 +219,6 @@ h2 a {
 
 .footer .footer-note .fa {
   color: #80ffaa;
-  text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
 }
 
 /*******************************************\
@@ -238,11 +236,6 @@ h2 a {
 
   .footer {
     margin-top: 50px;
-  }
-
-  .footer .social-list {
-    margin: 0px;
-    padding-top: 10px;
   }
 
   .footer .social-list li {
