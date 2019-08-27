@@ -4,7 +4,7 @@ let minutes = 25,
   breakLength = 5,
   isBreak = false,
   timerRunning = false,
-  audio = $('#beep')[0];
+  audio = document.getElementById('beep');
 
 const switchToBreak = () => {
   console.log('break');
@@ -51,11 +51,11 @@ const updateTimer = () => {
 
       if (!isBreak) {
         switchToBreak();
-        $('#timer-label').text('A break has begun!');
+        document.getElementById('timer-label').textContent = 'A break has begun!';
       } else {
         isBreak = false;
         setTimeout(updateTimer, 1000);
-        $('#timer-label').text('A session has begun!');
+        document.getElementById('timer-label').textContent = 'A session has begun!';
       }
     }
   }
@@ -75,7 +75,7 @@ const padTime = (minutes, seconds) => {
 
 const updateTimerInformation = (minutes, seconds) => {
   let paddedTime = padTime(minutes, seconds);
-  $('#time-left').text(paddedTime);
+  document.getElementById('time-left').textContent = paddedTime;
 }
 
 const incrementSession = () => {
@@ -87,7 +87,7 @@ const incrementSession = () => {
     sessionLength += 1;
     minutes = sessionLength;
     seconds = 0;
-    $('#session-length').text(sessionLength);
+    document.getElementById('session-length').textContent = sessionLength;
   }
 }
 
@@ -100,7 +100,7 @@ const decrementSession = () => {
     sessionLength -= 1;
     minutes = sessionLength;
     seconds = 0;
-    $('#session-length').text(sessionLength);
+    document.getElementById('session-length').textContent = sessionLength;
   }
 }
 
@@ -113,7 +113,7 @@ const incrementBreak = () => {
     breakLength += 1;
     minutes = breakLength;
     seconds = 0;
-    $('#break-length').text(breakLength);
+    document.getElementById('break-length').textContent = breakLength;
   }
 }
 
@@ -126,14 +126,14 @@ const decrementBreak = () => {
     breakLength -= 1;
     minutes = breakLength;
     seconds = 0;
-    $('#break-length').text(breakLength);
+    document.getElementById('break-length').textContent = breakLength;
   }
 }
 
 const controlTimerPause = () => {
   if (timerRunning) {
     timerRunning = false;
-    $('#timer-label').text('Timer is paused.');
+    document.getElementById('timer-label').textContent = 'Timer is paused.';
   } else {
     timerRunning = true;
     updateTimer();
@@ -151,31 +151,19 @@ const resetTimer = () => {
 
   updateTimerInformation(minutes, seconds);
 
-  $('#break-length').text(breakLength);
-  $('#session-length').text(sessionLength);
-  $('#timer-label').text('Click to start!');
+  document.getElementById('break-length').textContent = breakLength;
+  document.getElementById('session-length').textContent = sessionLength;
+  document.getElementById('timer-label').textContent = 'Click to start!';
 }
 
-$('#session-increment').on('click', function() {
-  incrementSession();
-});
+document.getElementById('session-increment').addEventListener('click', () => incrementSession());
 
-$('#session-decrement').on('click', function() {
-  decrementSession();
-});
+document.getElementById('session-decrement').addEventListener('click', () => decrementSession());
 
-$('#break-increment').on('click', function() {
-  incrementBreak();
-});
+document.getElementById('break-increment').addEventListener('click', () => incrementBreak());
 
-$('#break-decrement').on('click', function() {
-  decrementBreak();
-});
+document.getElementById('break-decrement').addEventListener('click', () => decrementBreak());
 
-$('#start_stop').on('click', function() {
-  controlTimerPause();
-});
+document.getElementById('start_stop').addEventListener('click', () => controlTimerPause());
 
-$('#reset').on('click', function() {
-  resetTimer();
-});
+document.getElementById('reset').addEventListener('click', () => resetTimer());
