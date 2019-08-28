@@ -1,0 +1,52 @@
+{
+  "name": "pomodoro-timer",
+  "version": "1.0.0",
+  "description": "Pomodoro Timer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node_modules/.bin/webpack-dev-server --config webpack.dev.js --mode development --open --hot",
+    "lint": "eslint src/index.js src/containers/*.js src/components/**/*.js",
+    "start-lint": "run-p start lint",
+    "build": "node_modules/.bin/webpack --config webpack.prod.js --mode production",
+    "serve": "node_modules/.bin/http-server ./dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carolinaknoll/pomodoro-timer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carolinaknoll/pomodoro-timer/issues"
+  },
+  "homepage": "https://carolinaknoll.github.io/pomodoro-timer",
+  "dependencies": {
+    "gh-pages": "^2.1.1",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "npm-run-all": "^4.1.5",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.1"
+  }
+}

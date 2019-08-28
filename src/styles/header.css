@@ -1,0 +1,22 @@
+h1 {
+  color: #80ffaa;
+  font-size: 4em;
+  text-align: center;
+  text-shadow: 4px 2px 4px rgba(100, 100, 100, 0.4);
+}
+
+h1 span {
+  color: #ff8080;
+  text-shadow: 4px 2px 4px rgba(255, 0, 0, 0.4);
+}
+
+h2 {
+  color: #91b8d4;
+  margin-bottom: 40px;
+  margin-top: -40px;
+  text-align: center;
+}
+
+h2 a {
+  color: #ff8080;
+}

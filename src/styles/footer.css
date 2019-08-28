@@ -1,0 +1,63 @@
+/*******************************************\
+|                  FOOTER                   |
+\*******************************************/
+.footer {
+  background: #1f242d;
+  border-top: 4px #80ffaa outset;
+  flex-shrink: 0;
+  font-size: 1.4em;
+  min-height: 20vh;
+  text-align: center;
+  width: 100%;
+}
+
+.footer .social-list li {
+  display: inline;
+  margin: 5px;
+}
+
+.footer .social-list .fa {
+  border-radius: 100%;
+  border: 2px solid #FFF;
+  color: #FFF;
+  font-size: 1.3em;
+  height: 40px;
+  line-height: 1.4;
+  margin: 5px;
+  padding: 8px;
+  text-align: center;
+  transition: 0.3s;
+  width: 40px;
+}
+
+.footer .contact .fa:hover {
+  background-color: #e6b800;
+}
+
+.footer .social-list .fa:hover {
+  text-shadow: 2px 1px 2px #333;
+}
+
+.footer .linkedin .fa:hover {
+  background-color: #117BB7;
+}
+
+.footer .github .fa:hover {
+  background-color: #24478f;
+}
+
+.footer .twitter .fa:hover {
+  background-color: #007acc;
+}
+
+.footer .codepen .fa:hover {
+  background-color: #ff6600;
+}
+
+.footer .freecodecamp .fa:hover {
+  background-color: #009933;
+}
+
+.footer .footer-note .fa {
+  color: #80ffaa;
+}
