@@ -33,17 +33,18 @@ export default class PomodoroTimer extends Component {
   updateTimer = () => {
     let { timerRunning, minutes, onSession, seconds } = this.state;
 
-    if (timerRunning) {
+    if (!timerRunning) {
       return;
     }
 
     if (seconds > 0) {
-      this.state({
+      this.setState({
         timerRunning: true,
         seconds: seconds -= 1
       })
 
       this.updateTimerInformation(minutes, seconds);
+
       setTimeout(this.updateTimer, 1000);
 
     } else if (minutes + seconds > 1) {
@@ -67,6 +68,8 @@ export default class PomodoroTimer extends Component {
         minutes: 0,
         seconds: 60
       })
+
+      setTimeout(this.updateTimer, 1000);
     }
 
     else {
@@ -108,7 +111,6 @@ export default class PomodoroTimer extends Component {
 
   updateTimerInformation = (minutes, seconds) => {
     let paddedTime = this.padTime(minutes, seconds);
-    console.log('paddedTime', paddedTime);
 
     this.setState({
       timeLeft: paddedTime
@@ -116,7 +118,7 @@ export default class PomodoroTimer extends Component {
   }
 
   incrementSession = () => {
-    let { timerRunning, sessionLength} = this.state;
+    let { timerRunning, sessionLength } = this.state;
 
     if (timerRunning) {
       return;
@@ -133,8 +135,7 @@ export default class PomodoroTimer extends Component {
   }
 
   decrementSession = () => {
-    let { timerRunning, sessionLength} = this.state;
-
+    let { timerRunning, sessionLength } = this.state;
 
     if (timerRunning) {
       return;
@@ -150,7 +151,7 @@ export default class PomodoroTimer extends Component {
   }
 
   incrementBreak = () => {
-    let { timerRunning, breakLength} = this.state;
+    let { timerRunning, breakLength } = this.state;
 
     if (timerRunning) {
       return;
@@ -166,7 +167,7 @@ export default class PomodoroTimer extends Component {
   }
 
   decrementBreak = () => {
-    let { timerRunning, breakLength} = this.state;
+    let { timerRunning, breakLength } = this.state;
 
     if (timerRunning) {
       return;
@@ -192,15 +193,12 @@ export default class PomodoroTimer extends Component {
     } else {
       this.setState({
         timerRunning: true,
-      })
-
-      this.updateTimer();
+        timerLabel: 'Timer has resumed.'
+      }, () => this.updateTimer());
     }
   }
 
   resetTimer = () => {
-    let { minutes, seconds } = this.state;
-
     let audio = document.getElementById('beep');
 
     audio.pause();
@@ -213,10 +211,9 @@ export default class PomodoroTimer extends Component {
       breakLength: 5,
       sessionLength: 25,
       onSession: true,
-      timerLabel: 'Click to start!'
-    })
-
-    this.updateTimerInformation(minutes, seconds);
+      timerLabel: 'Click to start!',
+      timeLeft: '25:00'
+    });
   }
 
   render() {
