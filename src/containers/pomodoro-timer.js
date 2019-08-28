@@ -19,15 +19,6 @@ export default class PomodoroTimer extends Component {
     }
   }
 
-  componentDidMount() {
-    document.getElementById('session-increment').addEventListener('click', () => this.incrementSession());
-    document.getElementById('session-decrement').addEventListener('click', () => this.decrementSession());
-    document.getElementById('break-increment').addEventListener('click', () => this.incrementBreak());
-    document.getElementById('break-decrement').addEventListener('click', () => this.decrementBreak());
-    document.getElementById('start_stop').addEventListener('click', () => this.controlTimerPause());
-    document.getElementById('reset').addEventListener('click', () => this.resetTimer());
-  }
-
   switchToBreak = () => {
     this.setState({
       onSession: false,
@@ -234,28 +225,67 @@ export default class PomodoroTimer extends Component {
         <Header />
 
         <div className="pomodoro-container">
-          <div id="start_stop" className="timer">
+          <div id="start_stop" className="timer" onClick={this.controlTimerPause}>
             <h3 id="time-left" className="timer-length">{this.state.timeLeft}</h3>
             <h4 id="timer-label" className="status">{this.state.timerLabel}</h4>
           </div>
 
           <div className="reset">
-            <button id="reset" className="control-button">Reset</button>
+            <button
+              id="reset"
+              className="control-button"
+              onClick={this.resetTimer}
+            >
+              Reset
+            </button>
           </div>
 
           <div className="setters">
             <div className="session-setter">
               <p id="session-label">Session length</p>
-              <button id="session-increment" className="control-button">+</button>
-              <p className="session-length"><span id="session-length">{this.state.sessionLength}</span> min</p>
-              <button id="session-decrement" className="control-button">-</button>
+
+              <button
+                id="session-increment"
+                className="control-button"
+                onClick={this.incrementSession}
+              >
+                +
+              </button>
+
+              <p className="session-length">
+                <span id="session-length">{this.state.sessionLength}</span> min
+              </p>
+
+              <button
+                id="session-decrement"
+                className="control-button"
+                onClick={this.decrementSession}
+              >
+                -
+              </button>
             </div>
 
             <div className="break-setter">
               <p id="break-label">Break length</p>
-              <button id="break-increment" className="control-button">+</button>
-              <p className="break-length"><span id="break-length">{this.state.breakLength}</span> min</p>
-              <button id="break-decrement" className="control-button">-</button>
+              <button
+                id="break-increment"
+                className="control-button"
+                onClick={this.incrementBreak}
+              >
+                +
+              </button>
+
+              <p className="break-length">
+                <span id="break-length">{this.state.breakLength}</span> min
+              </p>
+
+              <button
+                id="break-decrement"
+                className="control-button"
+                onClick={this.decrementBreak}
+              >
+                -
+              </button>
             </div>
           </div>
 
