@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import 'normalize.css';
 import './index.css';
 
-import PomodoroTimer from './containers/pomodoro-timer';
+import PomodoroContainer from './containers/pomodoro-container';
 
 ReactDOM.render(
-  <PomodoroTimer />,
+  <PomodoroContainer />,
   document.getElementById('root'),
 );

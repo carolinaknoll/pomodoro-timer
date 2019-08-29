@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import Header from '../components/header';
-import Footer from '../components/footer';
 import audioFile from '../audio/martian-gun.mp3';
 
-export default class PomodoroTimer extends Component {
+export default class Pomodoro extends Component {
   constructor(props) {
     super(props);
 
@@ -218,78 +216,72 @@ export default class PomodoroTimer extends Component {
 
   render() {
     return (
-      <div className="content-container">
-        <Header />
+      <div className="pomodoro-container">
+        <div id="start_stop" className="timer" onClick={this.controlTimerPause}>
+          <h3 id="time-left" className="timer-length">{this.state.timeLeft}</h3>
+          <h4 id="timer-label" className="status">{this.state.timerLabel}</h4>
+        </div>
 
-        <div className="pomodoro-container">
-          <div id="start_stop" className="timer" onClick={this.controlTimerPause}>
-            <h3 id="time-left" className="timer-length">{this.state.timeLeft}</h3>
-            <h4 id="timer-label" className="status">{this.state.timerLabel}</h4>
-          </div>
+        <div className="reset">
+          <button
+            id="reset"
+            className="control-button"
+            onClick={this.resetTimer}
+          >
+            Reset
+          </button>
+        </div>
 
-          <div className="reset">
+        <div className="setters">
+          <div className="session-setter">
+            <p id="session-label">Session length</p>
+
             <button
-              id="reset"
+              id="session-increment"
               className="control-button"
-              onClick={this.resetTimer}
+              onClick={this.incrementSession}
             >
-              Reset
+              +
+            </button>
+
+            <p className="session-length">
+              <span id="session-length">{this.state.sessionLength}</span> min
+            </p>
+
+            <button
+              id="session-decrement"
+              className="control-button"
+              onClick={this.decrementSession}
+            >
+              -
             </button>
           </div>
 
-          <div className="setters">
-            <div className="session-setter">
-              <p id="session-label">Session length</p>
+          <div className="break-setter">
+            <p id="break-label">Break length</p>
+            <button
+              id="break-increment"
+              className="control-button"
+              onClick={this.incrementBreak}
+            >
+              +
+            </button>
 
-              <button
-                id="session-increment"
-                className="control-button"
-                onClick={this.incrementSession}
-              >
-                +
-              </button>
+            <p className="break-length">
+              <span id="break-length">{this.state.breakLength}</span> min
+            </p>
 
-              <p className="session-length">
-                <span id="session-length">{this.state.sessionLength}</span> min
-              </p>
-
-              <button
-                id="session-decrement"
-                className="control-button"
-                onClick={this.decrementSession}
-              >
-                -
-              </button>
-            </div>
-
-            <div className="break-setter">
-              <p id="break-label">Break length</p>
-              <button
-                id="break-increment"
-                className="control-button"
-                onClick={this.incrementBreak}
-              >
-                +
-              </button>
-
-              <p className="break-length">
-                <span id="break-length">{this.state.breakLength}</span> min
-              </p>
-
-              <button
-                id="break-decrement"
-                className="control-button"
-                onClick={this.decrementBreak}
-              >
-                -
-              </button>
-            </div>
+            <button
+              id="break-decrement"
+              className="control-button"
+              onClick={this.decrementBreak}
+            >
+              -
+            </button>
           </div>
-
-          <audio id="beep" src={audioFile}></audio>
         </div>
 
-        <Footer />
+        <audio id="beep" src={audioFile}></audio>
       </div>
     )
   }
