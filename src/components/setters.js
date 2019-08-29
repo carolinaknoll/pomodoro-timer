@@ -2,53 +2,21 @@ import React, {Component} from 'react';
 import PropTypes from "prop-types";
 
 export default class Setters extends Component {
-  incrementSession = () => {
-    let { timerRunning, sessionLength } = this.props;
+  handleSetterClick = (action, type, typeLength) => {
+    let { timerRunning } = this.props;
 
     if (timerRunning) {
       return;
     }
 
-    if (sessionLength < 60) {
-
-      this.props.updateSetter('session', 'increment', sessionLength);
-    }
-  }
-
-  decrementSession = () => {
-    let { timerRunning, sessionLength } = this.props;
-
-    if (timerRunning) {
-      return;
+    if (action === 'increment' && typeLength < 60) {
+      this.props.updateSetter(type, 'increment', typeLength);
     }
 
-    if (sessionLength > 1) {
-      this.props.updateSetter('session', 'decrement', sessionLength);
-    }
-  }
-
-  incrementBreak = () => {
-    let { timerRunning, breakLength } = this.props;
-
-    if (timerRunning) {
-      return;
+    if (action === 'decrement' && typeLength > 1) {
+      this.props.updateSetter(type, 'decrement', typeLength);
     }
 
-    if (breakLength < 60) {
-      this.props.updateSetter('break', 'increment', breakLength);
-    }
-  }
-
-  decrementBreak = () => {
-    let { timerRunning, breakLength } = this.props;
-
-    if (timerRunning) {
-      return;
-    }
-
-    if (breakLength > 1) {
-      this.props.updateSetter('break', 'decrement', breakLength);
-    }
   }
 
   render() {
@@ -60,7 +28,7 @@ export default class Setters extends Component {
           <button
             id="session-increment"
             className="control-button"
-            onClick={this.incrementSession}
+            onClick={() => this.handleSetterClick('increment', 'session', this.props.sessionLength)}
           >
             +
           </button>
@@ -72,7 +40,7 @@ export default class Setters extends Component {
           <button
             id="session-decrement"
             className="control-button"
-            onClick={this.decrementSession}
+            onClick={() => this.handleSetterClick('decrement', 'session', this.props.sessionLength)}
           >
             -
           </button>
@@ -83,7 +51,7 @@ export default class Setters extends Component {
           <button
             id="break-increment"
             className="control-button"
-            onClick={this.incrementBreak}
+            onClick={() => this.handleSetterClick('increment', 'break', this.props.breakLength)}
           >
             +
           </button>
@@ -95,7 +63,7 @@ export default class Setters extends Component {
           <button
             id="break-decrement"
             className="control-button"
-            onClick={this.decrementBreak}
+            onClick={() => this.handleSetterClick('decrement', 'break', this.props.breakLength)}
           >
             -
           </button>
