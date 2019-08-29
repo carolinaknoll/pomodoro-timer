@@ -121,24 +121,18 @@ export default class Pomodoro extends Component {
       seconds: 0
     })
 
-    if (type === 'session') {
-      if (action === 'increment') {
-        this.setState({ minutes: typeLength + 1, sessionLength: typeLength + 1})
-      }
-
-      if (action === 'decrement') {
-        this.setState({ minutes: typeLength - 1, sessionLength: typeLength - 1})
-      }
+    if (action === 'increment') {
+      this.setState({
+        minutes: typeLength + 1,
+        [type]: typeLength + 1
+      })
     }
 
-    if (type === 'break') {
-      if (action === 'increment') {
-        this.setState({ minutes: typeLength + 1, breakLength: typeLength + 1})
-      }
-
-      if (action === 'decrement') {
-        this.setState({ minutes: typeLength - 1, breakLength: typeLength - 1})
-      }
+    if (action === 'decrement') {
+      this.setState({
+        minutes: typeLength - 1,
+        [type]: typeLength - 1
+      })
     }
   }
 
