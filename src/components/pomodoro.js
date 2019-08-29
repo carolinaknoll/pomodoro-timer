@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import audioFile from '../audio/martian-gun.mp3';
+import Setters from '../components/setters';
 
 export default class Pomodoro extends Component {
   constructor(props) {
@@ -115,68 +116,29 @@ export default class Pomodoro extends Component {
     })
   }
 
-  incrementSession = () => {
-    let { timerRunning, sessionLength } = this.state;
+  updateSetter = (type, action, typeLength) => {
+    this.setState({
+      seconds: 0
+    })
 
-    if (timerRunning) {
-      return;
+    if (type === 'session') {
+      if (action === 'increment') {
+        this.setState({ minutes: typeLength + 1, sessionLength: typeLength + 1})
+      }
+
+      if (action === 'decrement') {
+        this.setState({ minutes: typeLength - 1, sessionLength: typeLength - 1})
+      }
     }
 
-    if (sessionLength < 60) {
+    if (type === 'break') {
+      if (action === 'increment') {
+        this.setState({ minutes: typeLength + 1, breakLength: typeLength + 1})
+      }
 
-      this.setState({
-        sessionLength: sessionLength += 1,
-        minutes: sessionLength,
-        seconds: 0
-      })
-    }
-  }
-
-  decrementSession = () => {
-    let { timerRunning, sessionLength } = this.state;
-
-    if (timerRunning) {
-      return;
-    }
-
-    if (sessionLength > 1) {
-      this.setState({
-        sessionLength: sessionLength -= 1,
-        minutes: sessionLength,
-        seconds: 0
-      })
-    }
-  }
-
-  incrementBreak = () => {
-    let { timerRunning, breakLength } = this.state;
-
-    if (timerRunning) {
-      return;
-    }
-
-    if (breakLength < 60) {
-      this.setState({
-        breakLength: breakLength += 1,
-        minutes: breakLength,
-        seconds: 0
-      })
-    }
-  }
-
-  decrementBreak = () => {
-    let { timerRunning, breakLength } = this.state;
-
-    if (timerRunning) {
-      return;
-    }
-
-    if (breakLength > 1) {
-      this.setState({
-        breakLength: breakLength -= 1,
-        minutes: breakLength,
-        seconds: 0
-      })
+      if (action === 'decrement') {
+        this.setState({ minutes: typeLength - 1, breakLength: typeLength - 1})
+      }
     }
   }
 
@@ -232,54 +194,12 @@ export default class Pomodoro extends Component {
           </button>
         </div>
 
-        <div className="setters">
-          <div className="session-setter">
-            <p id="session-label">Session length</p>
-
-            <button
-              id="session-increment"
-              className="control-button"
-              onClick={this.incrementSession}
-            >
-              +
-            </button>
-
-            <p className="session-length">
-              <span id="session-length">{this.state.sessionLength}</span> min
-            </p>
-
-            <button
-              id="session-decrement"
-              className="control-button"
-              onClick={this.decrementSession}
-            >
-              -
-            </button>
-          </div>
-
-          <div className="break-setter">
-            <p id="break-label">Break length</p>
-            <button
-              id="break-increment"
-              className="control-button"
-              onClick={this.incrementBreak}
-            >
-              +
-            </button>
-
-            <p className="break-length">
-              <span id="break-length">{this.state.breakLength}</span> min
-            </p>
-
-            <button
-              id="break-decrement"
-              className="control-button"
-              onClick={this.decrementBreak}
-            >
-              -
-            </button>
-          </div>
-        </div>
+        <Setters
+          breakLength={this.state.breakLength}
+          sessionLength={this.state.sessionLength}
+          timerRunning={this.state.timerRunning}
+          updateSetter={this.updateSetter}
+        />
 
         <audio id="beep" src={audioFile}></audio>
       </div>
