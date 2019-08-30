@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import audioFile from '../audio/martian-gun.mp3';
 import Setters from '../components/setters';
+import Reset from '../components/reset';
 
 export default class Pomodoro extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.state = this.initialState;
+  }
+
+  get initialState() {
+    return {
       breakLength: 5,
       minutes: 25,
       onSession: true,
@@ -158,16 +163,7 @@ export default class Pomodoro extends Component {
     audio.pause();
     audio.currentTime = 0;
 
-    this.setState({
-      timerRunning: false,
-      minutes: 25,
-      seconds: 0,
-      breakLength: 5,
-      sessionLength: 25,
-      onSession: true,
-      timerLabel: 'Click to start!',
-      timeLeft: '25:00'
-    });
+    this.setState(this.initialState);
   }
 
   render() {
@@ -178,15 +174,9 @@ export default class Pomodoro extends Component {
           <h4 id="timer-label" className="status">{this.state.timerLabel}</h4>
         </div>
 
-        <div className="reset">
-          <button
-            id="reset"
-            className="control-button"
-            onClick={this.resetTimer}
-          >
-            Reset
-          </button>
-        </div>
+        <Reset
+          resetTimer={this.resetTimer}
+        />
 
         <Setters
           breakLength={this.state.breakLength}
