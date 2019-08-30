@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import audioFile from '../audio/martian-gun.mp3';
 import Setters from '../components/setters';
+import Timer from '../components/timer';
 import Reset from '../components/reset';
 
 export default class Pomodoro extends Component {
@@ -167,12 +168,17 @@ export default class Pomodoro extends Component {
   }
 
   render() {
+    console.log('this.state.timeLeft', this.state.timeLeft);
+    console.log('this.state.timerLabel', this.state.timerLabel);
+
+
     return (
       <div className="pomodoro-container">
-        <div id="start_stop" className="timer" onClick={this.controlTimerPause}>
-          <h3 id="time-left" className="timer-length">{this.state.timeLeft}</h3>
-          <h4 id="timer-label" className="status">{this.state.timerLabel}</h4>
-        </div>
+        <Timer
+          controlTimerPause={this.controlTimerPause}
+          timeLeft={this.state.timeLeft}
+          timerLabel={this.state.timerLabel}
+        />
 
         <Reset
           resetTimer={this.resetTimer}
