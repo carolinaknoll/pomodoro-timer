@@ -62,21 +62,12 @@ export default class Pomodoro extends Component {
 
     else if (minutes + seconds === 0) {
       let audio = document.getElementById('beep');
-
       audio.play();
 
       if (onSession) {
         this.switchToBreak();
-
-        this.setState({
-          onSession: false,
-          timerLabel: 'Break in progress.'
-        })
-
       } else {
-        this.setState({
-          timerLabel: 'Session in progress.'
-        })
+        this.setState({ onSession: true })
       }
     }
 
@@ -142,8 +133,8 @@ export default class Pomodoro extends Component {
       <div className="pomodoro-container">
         <Timer
           controlTimerPause={this.controlTimerPause}
+          onSession={this.state.onSession}
           timeLeft={this.state.timeLeft}
-          timerLabel={this.state.timerLabel}
           timerRunning={this.state.timerRunning}
         />
 
