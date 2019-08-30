@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Reset({ resetTimer }) {
   return (
@@ -12,4 +13,8 @@ export default function Reset({ resetTimer }) {
       </button>
     </div>
   )
+}
+
+Reset.propTypes = {
+  resetTimer: PropTypes.func.isRequired
 }
