@@ -32,7 +32,7 @@ export default class Pomodoro extends Component {
     })
 
     this.updateTimerInformation(this.state.minutes, this.state.seconds);
-    this.checkTimerState();
+    this.updateTimer();
   }
 
   updateTimer = () => {
@@ -43,69 +43,45 @@ export default class Pomodoro extends Component {
     }
 
     if (seconds > 0) {
+      this.setState({ seconds: seconds -= 1 })
+    }
+
+    else if (minutes + seconds > 1) {
       this.setState({
-        timerRunning: true,
-        seconds: seconds -= 1
+        minutes: minutes - 1,
+        seconds: 60
       })
+    }
 
-      this.updateTimerInformation(minutes, seconds);
-
-      setTimeout(this.updateTimer, 1000);
-
-    } else if (minutes + seconds > 1) {
-      this.setState({
-        timerRunning: true
-      })
-
-      this.updateTimerInformation(minutes, seconds);
-
-      if (timerRunning) {
-        this.setState({
-          minutes: minutes -= 1,
-          seconds: 60
-        })
-
-        setTimeout(this.updateTimer, 1000);
-      }
-
-    } else if (minutes === 1 && seconds === 0) {
+    else if (minutes === 1 && seconds === 0) {
       this.setState({
         minutes: 0,
         seconds: 60
       })
-
-      setTimeout(this.updateTimer, 1000);
     }
 
-    else {
-      if (minutes + seconds === 0) {
-        let audio = document.getElementById('beep');
+    else if (minutes + seconds === 0) {
+      let audio = document.getElementById('beep');
 
-        audio.play();
+      audio.play();
 
-        if (onSession) {
-          this.switchToBreak();
+      if (onSession) {
+        this.switchToBreak();
 
-          this.setState({
-            timerLabel: 'A break has begun!'
-          })
+        this.setState({
+          onSession: false,
+          timerLabel: 'Break in progress.'
+        })
 
-        } else {
-          this.setState({
-            onSession: false,
-            timerLabel: 'A session has begun!'
-          })
-
-          setTimeout(this.updateTimer, 1000);
-        }
+      } else {
+        this.setState({
+          timerLabel: 'Session in progress.'
+        })
       }
     }
-  }
 
-  checkTimerState = () => {
-    if (this.state.timerRunning) {
-      this.updateTimer();
-    }
+    setTimeout(this.updateTimer, 1000);
+    this.updateTimerInformation(minutes, seconds);
   }
 
   padTime = (minutes, seconds) => {
@@ -146,15 +122,9 @@ export default class Pomodoro extends Component {
     let { timerRunning } = this.state;
 
     if (timerRunning) {
-      this.setState({
-        timerRunning: false,
-        timerLabel: 'Timer is paused.'
-      })
+      this.setState({ timerRunning: false })
     } else {
-      this.setState({
-        timerRunning: true,
-        timerLabel: 'Timer has resumed.'
-      }, () => this.updateTimer());
+      this.setState({ timerRunning: true }, () => this.updateTimer());
     }
   }
 
@@ -168,16 +138,13 @@ export default class Pomodoro extends Component {
   }
 
   render() {
-    console.log('this.state.timeLeft', this.state.timeLeft);
-    console.log('this.state.timerLabel', this.state.timerLabel);
-
-
     return (
       <div className="pomodoro-container">
         <Timer
           controlTimerPause={this.controlTimerPause}
           timeLeft={this.state.timeLeft}
           timerLabel={this.state.timerLabel}
+          timerRunning={this.state.timerRunning}
         />
 
         <Reset
