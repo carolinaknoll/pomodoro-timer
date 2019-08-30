@@ -1,3 +1,5 @@
 @import url('../src/styles/header.css');
 @import url('../src/styles/footer.css');
+@import url('../src/styles/timer.css');
+@import url('../src/styles/setters.css');
 @import url('../src/styles/pomodoro-timer.css');
