@@ -16,11 +16,18 @@
 
 .timer-length {
   font-size: 3.5em;
+  margin-bottom: 0;
   text-align: center;
 }
 
-.status {
+.timer .type,
+.timer .status {
   font-size: 1.5em;
   font-weight: 300;
-  margin-top: -40px;
+  margin: 0;
+}
+
+.timer .status {
+  margin: 25px auto;
+  width: 150px;
 }

@@ -18,7 +18,7 @@ export default class Timer extends Component {
     return (
       <div id="start_stop" className="timer" onClick={this.props.controlTimerPause}>
         <h3 id="time-left" className="timer-length">{this.props.timeLeft}</h3>
-        <h4 id="timer-label" className="status">{this.handleTimerTypeMessage()}</h4>
+        <h4 id="timer-label" className="type">{this.handleTimerTypeMessage()}</h4>
         <h4 id="timer-label" className="status">{this.handleTimerStatusMessage()}</h4>
       </div>
     )
