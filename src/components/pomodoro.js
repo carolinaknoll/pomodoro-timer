@@ -3,6 +3,7 @@ import audioFile from '../audio/martian-gun.mp3';
 import Setters from '../components/setters';
 import Timer from '../components/timer';
 import Reset from '../components/reset';
+import padTime from '../helpers';
 
 export default class Pomodoro extends Component {
   constructor(props) {
@@ -75,14 +76,8 @@ export default class Pomodoro extends Component {
     this.updateTimerInformation(minutes, seconds);
   }
 
-  padTime = (minutes, seconds) => {
-    const mins = minutes < 10 ? `0${minutes}` : `${minutes}`;
-    const secs = seconds < 10 ? `0${seconds}` : `${seconds}`;
-    return `${mins}:${secs}`;
-  }
-
   updateTimerInformation = (minutes, seconds) => {
-    let paddedTime = this.padTime(minutes, seconds);
+    let paddedTime = padTime(minutes, seconds);
 
     this.setState({
       timeLeft: paddedTime
