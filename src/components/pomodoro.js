@@ -14,11 +14,11 @@ export default class Pomodoro extends Component {
 
   get initialState() {
     return {
-      breakLength: 5,
+      breakMinutes: 5,
       minutes: 25,
       onSession: true,
       seconds: 0,
-      sessionLength: 25,
+      sessionMinutes: 25,
       timeLeft: '25:00',
       timerLabel: 'Click to start!',
       timerRunning: false
@@ -28,7 +28,7 @@ export default class Pomodoro extends Component {
   switchToBreak = () => {
     this.setState({
       onSession: false,
-      minutes: this.state.breakLength - 1,
+      minutes: this.state.breakMinutes - 1,
       seconds: 60
     })
 
@@ -138,8 +138,8 @@ export default class Pomodoro extends Component {
         />
 
         <Setters
-          breakLength={this.state.breakLength}
-          sessionLength={this.state.sessionLength}
+          breakMinutes={this.state.breakMinutes}
+          sessionMinutes={this.state.sessionMinutes}
           timerRunning={this.state.timerRunning}
           updateSetter={this.updateSetter}
         />

@@ -27,19 +27,19 @@ export default class Setters extends Component {
           <button
             id="session-increment"
             className="control-button"
-            onClick={() => this.handleSetterClick('increment', 'sessionLength', this.props.sessionLength)}
+            onClick={() => this.handleSetterClick('increment', 'sessionMinutes', this.props.sessionMinutes)}
           >
             +
           </button>
 
           <p className="session-length">
-            <span id="session-length">{this.props.sessionLength}</span> min
+            <span id="session-length">{this.props.sessionMinutes}</span> min
           </p>
 
           <button
             id="session-decrement"
             className="control-button"
-            onClick={() => this.handleSetterClick('decrement', 'sessionLength', this.props.sessionLength)}
+            onClick={() => this.handleSetterClick('decrement', 'sessionMinutes', this.props.sessionMinutes)}
           >
             -
           </button>
@@ -50,19 +50,19 @@ export default class Setters extends Component {
           <button
             id="break-increment"
             className="control-button"
-            onClick={() => this.handleSetterClick('increment', 'breakLength', this.props.breakLength)}
+            onClick={() => this.handleSetterClick('increment', 'breakMinutes', this.props.breakMinutes)}
           >
             +
           </button>
 
           <p className="break-length">
-            <span id="break-length">{this.props.breakLength}</span> min
+            <span id="break-length">{this.props.breakMinutes}</span> min
           </p>
 
           <button
             id="break-decrement"
             className="control-button"
-            onClick={() => this.handleSetterClick('decrement', 'breakLength', this.props.breakLength)}
+            onClick={() => this.handleSetterClick('decrement', 'breakMinutes', this.props.breakMinutes)}
           >
             -
           </button>
@@ -73,8 +73,8 @@ export default class Setters extends Component {
 }
 
 Setters.propTypes = {
-  breakLength: PropTypes.number,
-  sessionLength: PropTypes.number,
+  breakMinutes: PropTypes.number,
+  sessionMinutes: PropTypes.number,
   timerRunning: PropTypes.bool,
   updateSetter: PropTypes.func
 }
