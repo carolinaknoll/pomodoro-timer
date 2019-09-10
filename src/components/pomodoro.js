@@ -25,22 +25,15 @@ export default class Pomodoro extends Component {
     }
   }
 
-  switchToBreak = () => {
-    this.setState({
-      onSession: false,
-      minutes: this.state.breakMinutes - 1,
-      seconds: 60
-    })
-
-    this.updateTimerInformation(this.state.minutes, this.state.seconds);
-    this.updateTimer();
-  }
-
   updateTimer = () => {
-    let { timerRunning, minutes, onSession, seconds } = this.state;
+    let { timerRunning, minutes, onSession, seconds, sessionMinutes } = this.state;
 
     if (!timerRunning) {
       return;
+    }
+
+    if (onSession) {
+      this.setState({minutes: sessionMinutes - 1 })
     }
 
     if (seconds > 0) {
@@ -62,18 +55,37 @@ export default class Pomodoro extends Component {
     }
 
     else if (minutes + seconds === 0) {
-      let audio = document.getElementById('beep');
-      audio.play();
-
-      if (onSession) {
-        this.switchToBreak();
-      } else {
-        this.setState({ onSession: true })
-      }
+      this.handleSessionOrBreak();
     }
 
     setTimeout(this.updateTimer, 1000);
     this.updateTimerInformation(minutes, seconds);
+    console.log('this.state', this.state);
+  }
+
+  handleSessionOrBreak = () => {
+    let { onSession, breakMinutes, sessionMinutes } = this.state;
+
+    let audio = document.getElementById('beep');
+    audio.play();
+
+    if (onSession) {
+      this.setState({
+        onSession: false,
+        minutes: breakMinutes - 1,
+        seconds: 60
+      })
+
+      console.log('switching to break');
+    } else if (!onSession) {
+      this.setState({
+        onSession: true,
+        minutes: sessionMinutes - 1,
+        seconds: 60
+      })
+
+      console.log('switching to session');
+    }
   }
 
   updateTimerInformation = (minutes, seconds) => {
@@ -91,14 +103,12 @@ export default class Pomodoro extends Component {
 
     if (action === 'increment') {
       this.setState({
-        minutes: typeLength + 1,
         [type]: typeLength + 1
       })
     }
 
     if (action === 'decrement') {
       this.setState({
-        minutes: typeLength - 1,
         [type]: typeLength - 1
       })
     }
