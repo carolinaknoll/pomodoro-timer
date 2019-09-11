@@ -21,7 +21,6 @@ export default class Pomodoro extends Component {
       seconds: 0,
       sessionMinutes: 25,
       timeLeft: '25:00',
-      timerLabel: 'Click to start!',
       timerRunning: false
     }
   }
