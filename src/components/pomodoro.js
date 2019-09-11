@@ -32,20 +32,19 @@ export default class Pomodoro extends Component {
       return;
     }
 
-
     if (seconds > 0) {
       this.setState({ seconds: seconds -= 1 })
     }
 
     else if (minutes + seconds > 1) {
-      this.setState({
-        minutes: minutes - 1,
-        seconds: 60
-      })
+      let onFirstPomodoroSession = onSession && onFirstPomodoro;
+      let pomodoroSessionMinutes = onFirstPomodoroSession ? sessionMinutes : minutes;
 
-      if (onSession && onFirstPomodoro) {
-        this.setState({ minutes: sessionMinutes - 1, onFirstPomodoro: false })
-      }
+      this.setState({
+        minutes: pomodoroSessionMinutes - 1,
+        seconds: 60,
+        onFirstPomodoro: false,
+      }, () => this.updateTimerInformation(pomodoroSessionMinutes, seconds));
     }
 
     else if (minutes === 1 && seconds === 0) {
@@ -73,16 +72,16 @@ export default class Pomodoro extends Component {
     if (onSession) {
       this.setState({
         onSession: false,
-        minutes: breakMinutes - 1,
-        seconds: 60
+        minutes: breakMinutes,
+        seconds: 0
       })
 
       console.log('switching to break');
     } else if (!onSession) {
       this.setState({
         onSession: true,
-        minutes: sessionMinutes - 1,
-        seconds: 60
+        minutes: sessionMinutes,
+        seconds: 0
       })
 
       console.log('switching to session');
