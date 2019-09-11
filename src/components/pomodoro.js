@@ -16,6 +16,7 @@ export default class Pomodoro extends Component {
     return {
       breakMinutes: 5,
       minutes: 25,
+      onFirstPomodoro: true,
       onSession: true,
       seconds: 0,
       sessionMinutes: 25,
@@ -26,15 +27,12 @@ export default class Pomodoro extends Component {
   }
 
   updateTimer = () => {
-    let { timerRunning, minutes, onSession, seconds, sessionMinutes } = this.state;
+    let { timerRunning, minutes, onSession, seconds, sessionMinutes, onFirstPomodoro } = this.state;
 
     if (!timerRunning) {
       return;
     }
 
-    if (onSession) {
-      this.setState({minutes: sessionMinutes - 1 })
-    }
 
     if (seconds > 0) {
       this.setState({ seconds: seconds -= 1 })
@@ -45,6 +43,10 @@ export default class Pomodoro extends Component {
         minutes: minutes - 1,
         seconds: 60
       })
+
+      if (onSession && onFirstPomodoro) {
+        this.setState({ minutes: sessionMinutes - 1, onFirstPomodoro: false })
+      }
     }
 
     else if (minutes === 1 && seconds === 0) {
