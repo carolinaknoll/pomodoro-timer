@@ -103,13 +103,15 @@ export default class Pomodoro extends Component {
 
     if (action === 'increment') {
       this.setState({
-        [type]: typeLength + 1
+        [type]: typeLength + 1,
+        minutes: typeLength + 1
       })
     }
 
     if (action === 'decrement') {
       this.setState({
-        [type]: typeLength - 1
+        [type]: typeLength - 1,
+        minutes: typeLength - 1
       })
     }
   }
