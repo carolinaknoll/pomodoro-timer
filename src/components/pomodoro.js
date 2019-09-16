@@ -60,7 +60,6 @@ export default class Pomodoro extends Component {
 
     setTimeout(this.updateTimer, 1000);
     this.updateTimerInformation(minutes, seconds);
-    console.log('this.state', this.state);
   }
 
   handleSessionOrBreak = () => {
@@ -76,15 +75,12 @@ export default class Pomodoro extends Component {
         seconds: 0
       })
 
-      console.log('switching to break');
     } else if (!onSession) {
       this.setState({
         onSession: true,
         minutes: sessionMinutes,
         seconds: 0
       })
-
-      console.log('switching to session');
     }
   }
 
