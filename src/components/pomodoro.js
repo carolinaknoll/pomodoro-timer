@@ -105,14 +105,14 @@ export default class Pomodoro extends Component {
       this.setState({
         [type]: typeLength + 1,
         minutes: typeLength + 1
-      })
+      }, () => this.updateTimerInformation(this.state.minutes, this.state.seconds))
     }
 
     if (action === 'decrement') {
       this.setState({
         [type]: typeLength - 1,
         minutes: typeLength - 1
-      })
+      }, () => this.updateTimerInformation(this.state.minutes, this.state.seconds))
     }
   }
 
