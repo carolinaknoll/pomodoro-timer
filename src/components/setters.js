@@ -10,11 +10,11 @@ export default class Setters extends Component {
     }
 
     if (action === 'increment' && typeLength < 60) {
-      this.props.updateSetter(type, 'increment', typeLength);
+      this.props.updateSetter('increment', type, typeLength);
     }
 
     if (action === 'decrement' && typeLength > 1) {
-      this.props.updateSetter(type, 'decrement', typeLength);
+      this.props.updateSetter('decrement', type, typeLength);
     }
   }
 

@@ -92,22 +92,24 @@ export default class Pomodoro extends Component {
     })
   }
 
-  updateSetter = (type, action, typeLength) => {
+  updateSetter = (action, type, typeLength) => {
     this.setState({
       seconds: 0
     })
 
+    let typeIsSession = type === 'sessionMinutes';
+
     if (action === 'increment') {
       this.setState({
         [type]: typeLength + 1,
-        minutes: typeLength + 1
+        minutes: typeIsSession ? typeLength + 1 : this.state.minutes
       }, () => this.updateTimerInformation(this.state.minutes, this.state.seconds))
     }
 
     if (action === 'decrement') {
       this.setState({
         [type]: typeLength - 1,
-        minutes: typeLength - 1
+        minutes: typeIsSession ? typeLength - 1 : this.state.minutes
       }, () => this.updateTimerInformation(this.state.minutes, this.state.seconds))
     }
   }
