@@ -29,7 +29,7 @@ export default class Setters extends Component {
             className="control-button"
             onClick={() => this.handleSetterClick('increment', 'sessionMinutes', this.props.sessionMinutes)}
           >
-            +
+            <i className="fa fa-arrow-up"></i>
           </button>
 
           <p className="session-length">
@@ -41,7 +41,7 @@ export default class Setters extends Component {
             className="control-button"
             onClick={() => this.handleSetterClick('decrement', 'sessionMinutes', this.props.sessionMinutes)}
           >
-            -
+            <i className="fa fa-arrow-down"></i>
           </button>
         </div>
 
@@ -52,7 +52,7 @@ export default class Setters extends Component {
             className="control-button"
             onClick={() => this.handleSetterClick('increment', 'breakMinutes', this.props.breakMinutes)}
           >
-            +
+            <i className="fa fa-arrow-up"></i>
           </button>
 
           <p className="break-length">
@@ -64,7 +64,7 @@ export default class Setters extends Component {
             className="control-button"
             onClick={() => this.handleSetterClick('decrement', 'breakMinutes', this.props.breakMinutes)}
           >
-            -
+            <i className="fa fa-arrow-down"></i>
           </button>
         </div>
       </div>
