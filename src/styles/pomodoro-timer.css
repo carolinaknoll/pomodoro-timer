@@ -10,7 +10,6 @@ html, body {
 }
 
 body {
-  background-size: cover;
   background: #353c4b;
   box-sizing: border-box;
   color: #FFF;
@@ -27,6 +26,10 @@ body {
   width: 100%;
 }
 
+.box-shadow {
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, .5);
+}
+
 /*******************************************\
 |               MEDIA QUERIES               |
 \*******************************************/
@@ -38,7 +41,6 @@ body {
   .setters {
     display: flex;
     flex-direction: column;
-    justify-content: center !important;
   }
 
   .break-setter,
@@ -48,7 +50,7 @@ body {
   }
 
   .footer {
-    margin-top: 20px !important;
+    margin-top: 20px;
   }
 }
 

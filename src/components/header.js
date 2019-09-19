@@ -5,7 +5,7 @@ export default function Header() {
     <div className="header-container">
       <h1 className="title">P<span>o</span>m<span>o</span>d<span>o</span>r<span>o</span> Timer</h1>
 
-      <h2>Online timer based on the
+      <h2>Online timer based on the{" "}
         <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank" rel="noopener noreferrer">
           Pomodoro Technique.
         </a>

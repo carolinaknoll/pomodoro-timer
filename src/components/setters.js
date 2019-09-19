@@ -21,7 +21,7 @@ export default class Setters extends Component {
   render() {
     return (
       <div className="setters">
-        <div className="session-setter">
+        <div className="session-setter box-shadow">
           <p id="session-label">Session length</p>
 
           <button
@@ -45,7 +45,7 @@ export default class Setters extends Component {
           </button>
         </div>
 
-        <div className="break-setter">
+        <div className="break-setter box-shadow">
           <p id="break-label">Break length</p>
           <button
             id="break-increment"

@@ -6,7 +6,7 @@ export default function Reset({ resetTimer }) {
     <div className="reset">
       <button
         id="reset"
-        className="control-button"
+        className="control-button box-shadow"
         onClick={resetTimer}
       >
         Reset
