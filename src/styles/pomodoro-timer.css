@@ -13,21 +13,29 @@ body {
   background: #353c4b;
   box-sizing: border-box;
   color: #FFF;
-  display: flex;
-  flex-direction: column;
   font-family: 'Dosis';
 }
 
 .pomodoro-container {
-  flex: 1 0 auto;
   margin: 0 auto;
-  min-height: 60vh;
   max-width: 992px;
   width: 100%;
 }
 
 .box-shadow {
   box-shadow: 1px 1px 20px rgba(0, 0, 0, .5);
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: auto;
+}
+
+.header-container,
+.pomodoro-container {
+  flex: 1 0 auto;
 }
 
 /*******************************************\
