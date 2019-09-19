@@ -30,33 +30,9 @@ body {
 /*******************************************\
 |               MEDIA QUERIES               |
 \*******************************************/
-@media screen and (max-width: 315px) {
-  .title {
-    font-size: 3.2em;
-  }
-
-  h2 {
-    line-height: 1.1;
-    padding-top: 10px;
-  }
-
-  .footer {
-    margin-top: 50px;
-  }
-
-  .footer .social-list li {
-    margin: auto;
-    width: 100%;
-  }
-}
-
 @media screen and (max-width: 650px) {
   .title {
     line-height: 0.8;
-  }
-
-  .timer-length {
-    font-size: 2.6em;
   }
 
   .setters {
@@ -80,6 +56,14 @@ body {
   .timer {
     height: 200px;
     width: 200px;
+  }
+
+  .timer .timer-length {
+    font-size: 2.6em;
+  }
+
+  .timer .status {
+    margin: 15px auto;
   }
 
   .break-setter,

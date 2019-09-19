@@ -28,10 +28,12 @@
 
 .break-setter {
   float: right;
+  margin-right: 15px;
 }
 
 .session-setter {
   float: left;
+  margin-left: 15px;
 }
 
 .control-button {
